@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import Navigation from './components/Navigation';
-import Logo from './components/Logo';
+import Navigation from '@/app/_components/Navigation';
+import Logo from '@/app/_components/Logo';
 
 export const metadata = {
   title: 'The Wild Oasis',
