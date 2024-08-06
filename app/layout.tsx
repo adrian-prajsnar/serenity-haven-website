@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import '@/app/_styles/globals.css';
 
 import Navigation from '@/app/_components/Navigation';
 import Logo from '@/app/_components/Logo';
@@ -10,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
-      <body>
+      <body className='bg-primary-950 text-primary-100 min-h-screen'>
         <header>
           <Logo />
           <Navigation />
