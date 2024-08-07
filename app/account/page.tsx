@@ -4,8 +4,10 @@ export const metadata: Metadata = {
   title: 'Guest area',
 };
 
-function AccountPage() {
-  return <div>AccountPage</div>;
+export default function AccountPage() {
+  return (
+    <h2 className='font-semibold text-2xl text-accent-400 mb-7'>
+      Welcome, Jurek!
+    </h2>
+  );
 }
-
-export default AccountPage;
