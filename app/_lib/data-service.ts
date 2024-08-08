@@ -1,5 +1,6 @@
 import { eachDayOfInterval } from 'date-fns';
 import { supabase } from './supabase';
+import { Tables } from '../_types/database.types';
 
 /////////////
 // GET
@@ -35,10 +36,11 @@ export async function getCabinPrice(id) {
   return data;
 }
 
-export const getCabins = async function () {
+export const getCabins = async function (): Promise<Tables<'cabins'>[]> {
   const { data, error } = await supabase
     .from('cabins')
     .select('id, name, maxCapacity, regularPrice, discount, image')
+    .returns<Tables<'cabins'>[]>()
     .order('name');
 
   if (error) {
