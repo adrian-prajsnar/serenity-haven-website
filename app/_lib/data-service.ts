@@ -5,21 +5,17 @@ import { Tables } from '../_types/database.types';
 /////////////
 // GET
 
-export async function getCabin(id) {
+export async function getCabin(id: string): Promise<Tables<'cabins'>> {
   const { data, error } = await supabase
     .from('cabins')
     .select('*')
     .eq('id', id)
+    .returns<Tables<'cabins'>>()
     .single();
 
-  // For testing
-  // await new Promise((res) => setTimeout(res, 1000));
+  if (error) console.error(error);
 
-  if (error) {
-    console.error(error);
-  }
-
-  return data;
+  return data as unknown as Tables<'cabins'>;
 }
 
 export async function getCabinPrice(id) {
@@ -28,6 +24,9 @@ export async function getCabinPrice(id) {
     .select('regularPrice, discount')
     .eq('id', id)
     .single();
+
+  // For testing
+  // await new Promise((res) => setTimeout(res, 1000));
 
   if (error) {
     console.error(error);
