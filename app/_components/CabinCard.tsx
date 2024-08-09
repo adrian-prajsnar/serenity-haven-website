@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { UsersIcon } from '@heroicons/react/24/solid';
 import { Tables } from '../_types/database.types';
 
-function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
+export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
@@ -59,5 +59,3 @@ function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
     </div>
   );
 }
-
-export default CabinCard;
