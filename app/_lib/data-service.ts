@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { eachDayOfInterval } from 'date-fns';
 import { supabase } from './supabase';
 import { Tables } from '../_types/database.types';
@@ -13,7 +14,10 @@ export async function getCabin(id: string): Promise<Tables<'cabins'>> {
     .returns<Tables<'cabins'>>()
     .single();
 
-  if (error) console.error(error);
+  if (error) {
+    console.error(error);
+    notFound();
+  }
 
   return data as unknown as Tables<'cabins'>;
 }
