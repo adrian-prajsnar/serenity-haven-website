@@ -3,7 +3,7 @@ import {
   HomeIcon,
   UserIcon,
 } from '@heroicons/react/24/solid';
-import SignOutButton from '../../components/SignOutButton';
+import SignOutButton from '@/app/_components/SignOutButton';
 import Link from 'next/link';
 
 const navLinks = [
