@@ -3,14 +3,19 @@ import { Suspense } from 'react';
 
 import CabinList from '@/app/_components/CabinList';
 import Spinner from '@/app/_components/Spinner';
-
-export const revalidate = 3600;
+import Filter from '@/app/_components/Filter';
 
 export const metadata: Metadata = {
   title: 'Cabins',
 };
 
-export default function CabinsPage() {
+export default function CabinsPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const filter: string = (searchParams?.capacity as string) ?? 'all';
+
   return (
     <div>
       <h1 className='text-4xl mb-5 text-accent-400 font-medium'>
@@ -25,6 +30,10 @@ export default function CabinsPage() {
         Welcome to paradise.
       </p>
 
+      <div className='flex justify-end mb-8'>
+        <Filter />
+      </div>
+
       <Suspense
         fallback={
           <div className='grid items-center justify-center'>
@@ -32,8 +41,9 @@ export default function CabinsPage() {
             <p className='text-xl text-primary-200'>Loading cabins data...</p>
           </div>
         }
+        key={filter}
       >
-        <CabinList />
+        <CabinList filter={filter} />
       </Suspense>
     </div>
   );
