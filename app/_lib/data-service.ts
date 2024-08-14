@@ -2,16 +2,18 @@ import { notFound } from 'next/navigation';
 import { eachDayOfInterval } from 'date-fns';
 import { supabase } from './supabase';
 import { Tables } from '../_types/database.types';
+import { BookedDates } from '../_types/BookedDates';
 
 /////////////
 // GET
 
-export async function getCabin(id: string): Promise<Tables<'cabins'>> {
+export async function getCabin(
+  id: Tables<'cabins'>['id']
+): Promise<Tables<'cabins'>> {
   const { data, error } = await supabase
     .from('cabins')
     .select('*')
     .eq('id', id)
-    .returns<Tables<'cabins'>>()
     .single();
 
   if (error) {
@@ -19,7 +21,7 @@ export async function getCabin(id: string): Promise<Tables<'cabins'>> {
     notFound();
   }
 
-  return data as unknown as Tables<'cabins'>;
+  return data;
 }
 
 export async function getCabinPrice(id) {
@@ -39,7 +41,7 @@ export async function getCabinPrice(id) {
   return data;
 }
 
-export const getCabins = async function (): Promise<Tables<'cabins'>[]> {
+export async function getCabins(): Promise<Tables<'cabins'>[]> {
   const { data, error } = await supabase
     .from('cabins')
     .select('id, name, maxCapacity, regularPrice, discount, image')
@@ -52,7 +54,7 @@ export const getCabins = async function (): Promise<Tables<'cabins'>[]> {
   }
 
   return data;
-};
+}
 
 // Guests are uniquely identified by their email address
 export async function getGuest(email) {
@@ -99,12 +101,13 @@ export async function getBookings(guestId) {
   return data;
 }
 
-export async function getBookedDatesByCabinId(cabinId) {
-  let today = new Date();
+export async function getBookedDatesByCabinId(
+  cabinId: Tables<'bookings'>['cabinId']
+): Promise<BookedDates> {
+  let today: string | Date = new Date();
   today.setUTCHours(0, 0, 0, 0);
   today = today.toISOString();
 
-  // Getting all bookings
   const { data, error } = await supabase
     .from('bookings')
     .select('*')
@@ -116,8 +119,7 @@ export async function getBookedDatesByCabinId(cabinId) {
     throw new Error('Bookings could not get loaded');
   }
 
-  // Converting to actual dates to be displayed in the date picker
-  const bookedDates = data
+  const bookedDates: BookedDates = data
     .map(booking => {
       return eachDayOfInterval({
         start: new Date(booking.startDate),
@@ -129,7 +131,7 @@ export async function getBookedDatesByCabinId(cabinId) {
   return bookedDates;
 }
 
-export async function getSettings() {
+export async function getSettings(): Promise<Tables<'settings'>> {
   const { data, error } = await supabase.from('settings').select('*').single();
 
   if (error) {

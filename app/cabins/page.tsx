@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import CabinList from '@/app/_components/CabinList';
-import Spinner from '@/app/_components/Spinner';
 import Filter from '@/app/_components/Filter';
+import ContentLoader from '../_components/ContentLoader';
 
 export const metadata: Metadata = {
   title: 'Cabins',
@@ -34,15 +34,7 @@ export default function CabinsPage({
         <Filter />
       </div>
 
-      <Suspense
-        fallback={
-          <div className='grid items-center justify-center'>
-            <Spinner />
-            <p className='text-xl text-primary-200'>Loading cabins data...</p>
-          </div>
-        }
-        key={filter}
-      >
+      <Suspense fallback={<ContentLoader content='cabins' />} key={filter}>
         <CabinList filter={filter} />
       </Suspense>
     </div>
