@@ -1,7 +1,5 @@
-'use client';
-
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { auth } from '../_lib/auth';
+import NavLink from './NavLink';
 
 const navLinks: { name: string; href: string }[] = [
   {
@@ -18,23 +16,14 @@ const navLinks: { name: string; href: string }[] = [
   },
 ];
 
-export default function Navigation() {
-  const pathname: string = usePathname();
+export default async function Navigation() {
+  const session = await auth();
 
   return (
     <nav className='z-10 text-xl'>
       <ul className='flex gap-16 items-center'>
         {navLinks.map(link => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className={`hover:text-accent-400 transition-colors ${
-                pathname.startsWith(link.href) ? 'text-accent-400' : ''
-              }`}
-            >
-              {link.name}
-            </Link>
-          </li>
+          <NavLink key={link.href} link={link} session={session} />
         ))}
       </ul>
     </nav>

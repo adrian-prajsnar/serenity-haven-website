@@ -1,13 +1,16 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
+import { User } from 'next-auth';
 import { useReservation } from '../_contexts/ReservationContext';
 import { Tables } from '../_types/database.types';
 
 type ReservationFormProps = {
   cabin: Tables<'cabins'>;
+  user: User;
 };
 
-export default function ReservationForm({ cabin }: ReservationFormProps) {
+export default function ReservationForm({ cabin, user }: ReservationFormProps) {
   const { range } = useReservation();
 
   // CHANGE
@@ -18,21 +21,16 @@ export default function ReservationForm({ cabin }: ReservationFormProps) {
       <div className='bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center'>
         <p>Logged in as</p>
 
-        {/* <div className='flex gap-4 items-center'>
+        <div className='flex gap-4 items-center'>
           <img
-            // Important to display google profile images
             referrerPolicy='no-referrer'
             className='h-8 rounded-full'
-            src={user.image}
-            alt={user.name}
+            src={user.image || ''}
+            alt={user.name || ''}
           />
           <p>{user.name}</p>
-        </div> */}
+        </div>
       </div>
-
-      <p>
-        {String(range.from)} to {String(range.to)}
-      </p>
 
       <form className='bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col'>
         <div className='space-y-2'>
