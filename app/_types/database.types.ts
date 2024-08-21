@@ -115,28 +115,28 @@ export type Database = {
         Row: {
           countryFlag: string | null;
           created_at: string;
-          email: string | null;
+          email: string;
           fullName: string;
           id: number;
-          nationalID: string;
+          nationalID: string | null;
           nationality: string | null;
         };
         Insert: {
           countryFlag?: string | null;
           created_at?: string;
-          email?: string | null;
+          email?: string;
           fullName?: string;
           id?: number;
-          nationalID?: string;
+          nationalID?: string | null;
           nationality?: string | null;
         };
         Update: {
           countryFlag?: string | null;
           created_at?: string;
-          email?: string | null;
+          email?: string;
           fullName?: string;
           id?: number;
-          nationalID?: string;
+          nationalID?: string | null;
           nationality?: string | null;
         };
         Relationships: [];
