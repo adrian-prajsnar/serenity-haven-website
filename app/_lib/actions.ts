@@ -1,7 +1,11 @@
 'use server';
 
-import { signIn } from './auth';
+import { signIn, signOut } from './auth';
 
-export async function signInAction() {
+export async function signInAction(): Promise<void> {
   await signIn('google', { redirectTo: '/account' });
+}
+
+export async function signOutAction(): Promise<void> {
+  await signOut({ redirectTo: '/' });
 }
