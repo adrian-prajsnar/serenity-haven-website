@@ -1,4 +1,7 @@
 import { Metadata } from 'next';
+import { auth } from '@/app/_lib/auth';
+import { getGuest } from '@/app/_lib/data-service';
+import { Tables } from '@/app/_types/database.types';
 
 import SelectCountry from '@/app/_components/SelectCountry';
 import UpdateProfileForm from '@/app/_components/UpdateProfileForm';
@@ -7,9 +10,11 @@ export const metadata: Metadata = {
   title: 'Update profile',
 };
 
-export default function ProfilePage() {
-  // TO BE CHANGED LATER
-  const nationality = 'portugal';
+export default async function ProfilePage() {
+  const session = await auth();
+  const guest: Tables<'guests'> | null = await getGuest(
+    session?.user?.email as string
+  );
 
   return (
     <div>
@@ -22,12 +27,12 @@ export default function ProfilePage() {
         faster and smoother. See you soon!
       </p>
 
-      <UpdateProfileForm>
+      <UpdateProfileForm guest={guest}>
         <SelectCountry
           name='nationality'
           id='nationality'
           className='px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm'
-          defaultCountry={nationality}
+          defaultCountry={guest?.nationality}
         />
       </UpdateProfileForm>
     </div>

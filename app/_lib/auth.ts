@@ -13,7 +13,7 @@ const authConfig: NextAuthConfig = {
     }),
   ],
   callbacks: {
-    authorized({ auth, request }) {
+    authorized({ auth }) {
       return !!auth?.user;
     },
     async signIn({ user }) {
@@ -35,7 +35,7 @@ const authConfig: NextAuthConfig = {
     },
     async session({ session }) {
       const guest: Tables<'guests'> | null = await getGuest(session.user.email);
-      session.user.guestId = guest?.id;
+      session.user.guestId = guest?.id as number;
       return session;
     },
   },
