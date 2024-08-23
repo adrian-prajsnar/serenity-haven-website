@@ -4,6 +4,8 @@ import { revalidatePath } from 'next/cache';
 import { supabase } from './supabase';
 import { Tables } from '../_types/database.types';
 import { auth, signIn, signOut } from './auth';
+import { getBookings } from './data-service';
+import { GuestBooking } from '../_types/GuestBooking';
 
 export async function updateProfile(formData: FormData) {
   const session = await auth();
@@ -27,7 +29,7 @@ export async function updateProfile(formData: FormData) {
     nationalID,
   };
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from('guests')
     .update(updateData)
     .eq('id', session.user?.guestId as number);
@@ -35,6 +37,31 @@ export async function updateProfile(formData: FormData) {
   if (error) throw new Error('Profile could not be updated.');
 
   revalidatePath('/account/profile');
+}
+
+export async function deleteReservation(bookingId: Tables<'bookings'>['id']) {
+  const session = await auth();
+  if (!session) throw new Error('You must be logged in.');
+
+  const guestBookings: GuestBooking[] = await getBookings(
+    session.user?.guestId as number
+  );
+
+  const guestBookingsIds: GuestBooking['id'][] = guestBookings.map(
+    booking => booking.id
+  );
+
+  if (!guestBookingsIds.includes(bookingId))
+    throw new Error('You are not allowed to delete this reservation.');
+
+  const { error } = await supabase
+    .from('bookings')
+    .delete()
+    .eq('id', bookingId);
+
+  if (error) throw new Error('Booking could not be deleted');
+
+  revalidatePath('/account/reservations');
 }
 
 export async function signInAction(): Promise<void> {
