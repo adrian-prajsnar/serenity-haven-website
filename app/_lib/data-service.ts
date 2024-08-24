@@ -71,7 +71,7 @@ export async function getGuest(
 }
 
 export async function getBooking(id) {
-  const { data, error, count } = await supabase
+  const { data, error } = await supabase
     .from('bookings')
     .select('*')
     .eq('id', id)
@@ -79,7 +79,7 @@ export async function getBooking(id) {
 
   if (error) {
     console.error(error);
-    throw new Error('Booking could not get loaded');
+    throw new Error('Booking could not get loaded.');
   }
 
   return data;
