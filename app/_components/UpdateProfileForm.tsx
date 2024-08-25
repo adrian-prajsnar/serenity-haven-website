@@ -1,6 +1,4 @@
-'use client';
-
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import { Tables } from '../_types/database.types';
 import { updateProfile } from '../_lib/actions';
 import ButtonSubmitForm from './ButtonSubmitForm';
@@ -14,8 +12,6 @@ export default function UpdateProfileForm({
   children,
   guest,
 }: UpdateProfileFormProps) {
-  const [count, setCount] = useState();
-
   return (
     <form
       action={updateProfile}
@@ -43,7 +39,7 @@ export default function UpdateProfileForm({
         <div className='flex items-center justify-between'>
           <label htmlFor='nationality'>Where are you from?</label>
           <img
-            src={guest?.countryFlag}
+            src={guest?.countryFlag ?? ''}
             alt='Country flag'
             className='h-5 rounded-sm'
           />

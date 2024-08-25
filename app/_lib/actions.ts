@@ -1,16 +1,17 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { supabase } from './supabase';
-import { Tables } from '../_types/database.types';
-import { auth, signIn, signOut } from './auth';
-import { getBookings } from './data-service';
-import { GuestBooking } from '../_types/GuestBooking';
 import { redirect } from 'next/navigation';
+import { supabase } from './supabase';
+import { signIn, signOut } from './auth';
+import { Tables } from '../_types/database.types';
+import {
+  isAuthenticated,
+  isAuthorizedToMutateThisBooking,
+} from '../_utils/helpers';
 
 export async function updateProfile(formData: FormData) {
-  const session = await auth();
-  if (!session) throw new Error('You must be logged in.');
+  const session = await isAuthenticated();
 
   const nationalID = formData.get(
     'nationalID'
@@ -41,61 +42,38 @@ export async function updateProfile(formData: FormData) {
 }
 
 export async function deleteReservation(bookingId: Tables<'bookings'>['id']) {
-  const session = await auth();
-  if (!session) throw new Error('You must be logged in.');
-
-  const guestBookings: GuestBooking[] = await getBookings(
-    session.user?.guestId as number
-  );
-
-  const guestBookingsIds: GuestBooking['id'][] = guestBookings.map(
-    booking => booking.id
-  );
-
-  if (!guestBookingsIds.includes(bookingId))
-    throw new Error('You are not allowed to delete this reservation.');
+  await isAuthorizedToMutateThisBooking(bookingId);
 
   const { error } = await supabase
     .from('bookings')
     .delete()
     .eq('id', bookingId);
 
-  if (error) throw new Error('Booking could not be deleted');
+  if (error) throw new Error('Booking could not be deleted.');
 
   revalidatePath('/account/reservations');
 }
 
 export async function updateReservation(formData: FormData) {
-  const session = await auth();
-  if (!session) throw new Error('You must be logged in.');
+  const bookingId: Tables<'bookings'>['id'] = Number(formData.get('bookingId'));
+  await isAuthorizedToMutateThisBooking(bookingId);
 
-  const id: Tables<'bookings'>['id'] = Number(formData.get('id'));
-  const numGuests: Tables<'bookings'>['numGuests'] = Number(
-    formData.get('numGuests')
-  );
-  const observations: Tables<'bookings'>['observations'] = String(
-    formData.get('observations')
-  );
-
-  const guestBookings: GuestBooking[] = await getBookings(
-    session.user?.guestId as number
-  );
-
-  const guestBookingsIds: GuestBooking['id'][] = guestBookings.map(
-    booking => booking.id
-  );
-
-  if (!guestBookingsIds.includes(id))
-    throw new Error('You are not allowed to delete this reservation.');
+  const updateData: {
+    numGuests: Tables<'bookings'>['numGuests'];
+    observations: Tables<'bookings'>['observations'];
+  } = {
+    numGuests: Number(formData.get('numGuests')),
+    observations: String(formData.get('observations')?.slice(0, 1000)),
+  };
 
   const { error } = await supabase
     .from('bookings')
-    .update({ id, numGuests, observations })
-    .eq('id', id);
+    .update(updateData)
+    .eq('id', bookingId);
 
   if (error) throw new Error('Booking could not be updated.');
 
-  revalidatePath(`/account/reservations/update/${id}`);
+  revalidatePath(`/account/reservations/update/${bookingId}`);
   redirect('/account/reservations');
 }
 

@@ -70,11 +70,13 @@ export async function getGuest(
   return data;
 }
 
-export async function getBooking(id) {
+export async function getBooking(
+  bookingId: Tables<'bookings'>['id']
+): Promise<Tables<'bookings'>> {
   const { data, error } = await supabase
     .from('bookings')
     .select('*')
-    .eq('id', id)
+    .eq('id', bookingId)
     .single();
 
   if (error) {
