@@ -3,21 +3,23 @@
 import { useTransition } from 'react';
 import { TrashIcon } from '@heroicons/react/24/solid';
 import { Tables } from '../_types/database.types';
-import { deleteReservation } from '../_lib/actions';
+import { GuestBooking } from '../_types/GuestBooking';
 import SpinnerMini from './SpinnerMini';
 
 type DeleteReservationProps = {
   bookingId: Tables<'bookings'>['id'];
+  onDelete: (bookingId: GuestBooking['id']) => Promise<void>;
 };
 
 export default function DeleteReservation({
   bookingId,
+  onDelete,
 }: DeleteReservationProps) {
   const [isPending, startTransition] = useTransition();
 
   const handleDelete = () => {
     if (confirm('Are you sure you want to delete this reservation?'))
-      startTransition(() => deleteReservation(bookingId));
+      startTransition(() => onDelete(bookingId));
   };
 
   return (

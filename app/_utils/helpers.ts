@@ -12,9 +12,7 @@ export async function isAuthenticated(): Promise<Session> {
 export async function isAuthorizedToMutateThisBooking(
   bookingId: Tables<'bookings'>['id']
 ): Promise<void> {
-  const session = await auth();
-  if (!session) throw new Error('You must be logged in.');
-
+  const session = await isAuthenticated();
   const guestId = session.user?.guestId as number;
   const guestBookings = await getBookings(guestId);
   const guestBookingsIds = guestBookings.map(booking => booking.id);
