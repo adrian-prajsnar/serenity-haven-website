@@ -2,8 +2,12 @@
 'use client';
 
 import { User } from 'next-auth';
+import { differenceInDays, formatISO } from 'date-fns';
+import { createBooking } from '../_lib/actions';
 import { useReservation } from '../_contexts/ReservationContext';
 import { Tables } from '../_types/database.types';
+import { NewBookingData } from '../_types/NewBookingData';
+import ButtonSubmitForm from './ButtonSubmitForm';
 
 type ReservationFormProps = {
   cabin: Tables<'cabins'>;
@@ -11,10 +15,24 @@ type ReservationFormProps = {
 };
 
 export default function ReservationForm({ cabin, user }: ReservationFormProps) {
-  const { range } = useReservation();
+  const { range, resetRange } = useReservation();
+  const { maxCapacity, regularPrice, discount, id: cabinId } = cabin;
+  const { from: startDate, to: endDate } = range;
+  const numNights: number = differenceInDays(
+    endDate as Date,
+    startDate as Date
+  );
+  const cabinPrice: number = numNights * regularPrice - (discount ?? 0);
 
-  // CHANGE
-  const { maxCapacity } = cabin;
+  const bookingData: NewBookingData = {
+    startDate: startDate ? formatISO(new Date(startDate)) : '',
+    endDate: endDate ? formatISO(new Date(endDate)) : '',
+    numNights,
+    cabinPrice,
+    cabinId,
+  };
+
+  const createBookingWithData = createBooking.bind(null, bookingData);
 
   return (
     <div className='scale-[1.01]'>
@@ -32,7 +50,14 @@ export default function ReservationForm({ cabin, user }: ReservationFormProps) {
         </div>
       </div>
 
-      <form className='bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col'>
+      <form
+        // action={createBookingWithData}
+        action={async (formData: FormData) => {
+          await createBookingWithData(formData);
+          resetRange();
+        }}
+        className='bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col'
+      >
         <div className='space-y-2'>
           <label htmlFor='numGuests'>How many guests?</label>
           <select
@@ -65,11 +90,13 @@ export default function ReservationForm({ cabin, user }: ReservationFormProps) {
         </div>
 
         <div className='flex justify-end items-center gap-6'>
-          <p className='text-primary-300 text-base'>Start by selecting dates</p>
-
-          <button className='bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300'>
-            Reserve now
-          </button>
+          {!(startDate && endDate) ? (
+            <p className='text-primary-300 text-base'>
+              Start by selecting dates
+            </p>
+          ) : (
+            <ButtonSubmitForm content='Book now' loadingContent='Booking...' />
+          )}
         </div>
       </form>
     </div>

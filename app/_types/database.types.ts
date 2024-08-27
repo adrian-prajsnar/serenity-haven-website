@@ -28,21 +28,21 @@ export type Database = {
           totalPrice: number;
         };
         Insert: {
-          cabinId?: number;
-          cabinPrice?: number;
+          cabinId: number;
+          cabinPrice: number;
           created_at?: string;
-          endDate?: string;
-          extrasPrice?: number | null;
-          guestId?: number;
-          hasBreakfast?: boolean;
+          endDate: string;
+          extrasPrice: number | null;
+          guestId: number;
+          hasBreakfast: boolean;
           id?: number;
-          isPaid?: boolean;
-          numGuests?: number;
-          numNights?: number;
-          observations?: string | null;
-          startDate?: string;
-          status?: string;
-          totalPrice?: number;
+          isPaid: boolean;
+          numGuests: number;
+          numNights: number;
+          observations: string | null;
+          startDate: string;
+          status: string;
+          totalPrice: number;
         };
         Update: {
           cabinId?: number;
