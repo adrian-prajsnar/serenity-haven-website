@@ -1,6 +1,5 @@
 import NextAuth, { NextAuthConfig } from 'next-auth';
 import Google from 'next-auth/providers/google';
-
 import { createGuest, getGuest } from './data-service';
 import { Tables } from '../_types/database.types';
 import { NewGuest } from '../_types/NewGuest';

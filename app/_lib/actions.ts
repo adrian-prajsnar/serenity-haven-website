@@ -2,16 +2,16 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { isBefore, isWithinInterval } from 'date-fns';
 import { supabase } from './supabase';
 import { signIn, signOut } from './auth';
-import { Tables, TablesInsert } from '../_types/database.types';
+import { getBookedDatesByCabinId } from './data-service';
 import {
   isAuthenticated,
   isAuthorizedToMutateThisBooking,
 } from '../_utils/helpers';
+import { Tables, TablesInsert } from '../_types/database.types';
 import { NewBookingData } from '../_types/NewBookingData';
-import { getBookedDatesByCabinId } from './data-service';
-import { isBefore, isWithinInterval } from 'date-fns';
 
 export async function createBooking(
   newBookingData: NewBookingData,
