@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 
-export default function TextExpander({
-  children,
-}: {
+type TextExpanderProps = {
   children: string | null;
-}) {
+};
+
+export default function TextExpander({ children }: TextExpanderProps) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const displayText: string | null = isExpanded

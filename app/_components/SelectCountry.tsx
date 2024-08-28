@@ -1,22 +1,26 @@
 import { getCountries } from '@/app/_lib/data-service';
 
-// Let's imagine your colleague already built this component 😃
+type SelectCountryProps = {
+  defaultCountry: string;
+  name: string;
+  id: string;
+  className: string;
+};
 
 export default async function SelectCountry({
   defaultCountry,
   name,
   id,
   className,
-}) {
+}: SelectCountryProps) {
   const countries = await getCountries();
-  const flag =
+  const flag: string =
     countries.find(country => country.name === defaultCountry)?.flag ?? '';
 
   return (
     <select
       name={name}
       id={id}
-      // Here we use a trick to encode BOTH the country name and the flag into the value. Then we split them up again later in the server action
       defaultValue={`${defaultCountry}%${flag}`}
       className={className}
     >

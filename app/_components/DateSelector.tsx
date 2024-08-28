@@ -8,10 +8,9 @@ import {
   isSameDay,
   isWithinInterval,
 } from 'date-fns';
-
+import { useReservation } from '../_contexts/ReservationContext';
 import { Tables } from '../_types/database.types';
 import { BookedDates } from '../_types/BookedDates';
-import { useReservation } from '../_contexts/ReservationContext';
 
 const isAlreadyBooked = (range: DateRange, datesArr: Date[]) => {
   return (

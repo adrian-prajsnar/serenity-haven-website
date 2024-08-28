@@ -1,6 +1,5 @@
 import { getCabins } from '@/app/_lib/data-service';
 import { Tables } from '../_types/database.types';
-
 import CabinCard from '@/app/_components/CabinCard';
 
 export default async function CabinList({ filter }: { filter: string }) {

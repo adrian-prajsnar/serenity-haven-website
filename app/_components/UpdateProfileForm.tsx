@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { ReactNode } from 'react';
-import { Tables } from '../_types/database.types';
 import { updateProfile } from '../_lib/actions';
+import { Tables } from '../_types/database.types';
 import ButtonSubmitForm from './ButtonSubmitForm';
 
 type UpdateProfileFormProps = {

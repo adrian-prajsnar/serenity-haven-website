@@ -5,6 +5,7 @@ import { Tables } from '../_types/database.types';
 import { BookedDates } from '../_types/BookedDates';
 import { NewGuest } from '../_types/NewGuest';
 import { GuestBooking } from '../_types/GuestBooking';
+import { Country } from '../_types/Country';
 
 /////////////
 // GET
@@ -147,15 +148,15 @@ export async function getSettings(): Promise<Tables<'settings'>> {
   return data;
 }
 
-export async function getCountries() {
+export async function getCountries(): Promise<Country[]> {
   try {
     const res = await fetch(
       'https://restcountries.com/v2/all?fields=name,flag'
     );
-    const countries = await res.json();
+    const countries: Country[] = await res.json();
     return countries;
   } catch {
-    throw new Error('Could not fetch countries');
+    throw new Error('Could not fetch countries.');
   }
 }
 

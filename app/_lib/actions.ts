@@ -16,7 +16,7 @@ import { isBefore, isWithinInterval } from 'date-fns';
 export async function createBooking(
   newBookingData: NewBookingData,
   formData: FormData
-) {
+): Promise<void> {
   const session = await isAuthenticated();
 
   if (isBefore(new Date(newBookingData.startDate), new Date()))

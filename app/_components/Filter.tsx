@@ -17,52 +17,54 @@ export default function Filter() {
 
   return (
     <div className='border border-primary-800 flex'>
-      <Button
+      <FilterButton
         filter='all'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
         All cabins
-      </Button>
+      </FilterButton>
 
-      <Button
+      <FilterButton
         filter='small'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
         up to 3 guests
-      </Button>
+      </FilterButton>
 
-      <Button
+      <FilterButton
         filter='medium'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
         4 &ndash; 7 guests
-      </Button>
+      </FilterButton>
 
-      <Button
+      <FilterButton
         filter='large'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
       >
         8 &#43; guests
-      </Button>
+      </FilterButton>
     </div>
   );
 }
 
-function Button({
-  filter,
-  handleFilter,
-  activeFilter,
-  children,
-}: {
+type FilterButtonProps = {
   filter: string;
   handleFilter: (filter: string) => void;
   activeFilter: string;
   children: string;
-}) {
+};
+
+function FilterButton({
+  filter,
+  handleFilter,
+  activeFilter,
+  children,
+}: FilterButtonProps) {
   return (
     <button
       className={`${

@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { Tables } from '../_types/database.types';
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
+import { Tables } from '../_types/database.types';
 import TextExpander from './TextExpander';
 
 type CabinProps = {
