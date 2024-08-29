@@ -2,11 +2,9 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { NextFont } from 'next/dist/compiled/@next/font';
 import { Josefin_Sans } from 'next/font/google';
-
-import '@/app/_styles/globals.css';
-
-import Header from './_components/Header';
 import { ReservationProvider } from './_contexts/ReservationContext';
+import '@/app/_styles/globals.css';
+import Header from './_components/Header';
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +20,11 @@ const josefin: NextFont = Josefin_Sans({
   display: 'swap',
 });
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       <body

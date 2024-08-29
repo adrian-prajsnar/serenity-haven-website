@@ -1,17 +1,16 @@
 import { Suspense } from 'react';
 import { getCabin, getCabins } from '@/app/_lib/data-service';
-
 import Cabin from '@/app/_components/Cabin';
 import ContentLoader from '@/app/_components/ContentLoader';
 import Reservation from '@/app/_components/Reservation';
 
-type Props = {
+type CabinPageProps = {
   params: {
     cabinId: number;
   };
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: CabinPageProps) {
   const { name } = await getCabin(params.cabinId);
   return {
     title: `Cabin ${name}`,
@@ -25,7 +24,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function CabinPage({ params }: Props) {
+export default async function CabinPage({ params }: CabinPageProps) {
   const cabin = await getCabin(params.cabinId);
 
   return (

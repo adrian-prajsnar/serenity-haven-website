@@ -11,14 +11,6 @@ const nextConfig = {
       },
     ],
   },
-
-  // To be removed later!
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
 };
 
 export default nextConfig;

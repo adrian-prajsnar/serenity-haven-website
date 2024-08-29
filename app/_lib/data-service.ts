@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { eachDayOfInterval } from 'date-fns';
 import { supabase } from './supabase';
-import { Tables } from '../_types/database.types';
+import { Tables, TablesInsert } from '../_types/database.types';
 import { BookedDates } from '../_types/BookedDates';
 import { NewGuest } from '../_types/NewGuest';
 import { GuestBooking } from '../_types/GuestBooking';
@@ -23,21 +23,6 @@ export async function getCabin(
 
   return data;
 }
-
-// Probably not used anywhere - to be checked
-/*
-export async function getCabinPrice(id) {
-  const { data, error } = await supabase
-    .from('cabins')
-    .select('regularPrice, discount')
-    .eq('id', id)
-    .single();
-
-  if (error) console.error(error);
-
-  return data;
-}
-*/
 
 export async function getCabins(): Promise<Tables<'cabins'>[]> {
   const { data, error } = await supabase
@@ -157,11 +142,11 @@ export async function getCountries(): Promise<Country[]> {
 
 export async function createGuest(
   newGuest: NewGuest
-): Promise<Tables<'guests'>> {
+): Promise<TablesInsert<'guests'>> {
   const { data, error } = await supabase
     .from('guests')
     .insert([newGuest])
-    .returns<Tables<'guests'>>();
+    .returns<TablesInsert<'guests'>>();
 
   if (error) {
     console.error(error);

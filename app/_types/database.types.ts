@@ -91,13 +91,13 @@ export type Database = {
         };
         Insert: {
           created_at?: string;
-          description?: string | null;
-          discount?: number | null;
+          description: string | null;
+          discount: number | null;
           id?: number;
-          image?: string | null;
-          maxCapacity?: number;
-          name?: string;
-          regularPrice?: number;
+          image: string | null;
+          maxCapacity: number;
+          name: string;
+          regularPrice: number;
         };
         Update: {
           created_at?: string;
@@ -124,8 +124,8 @@ export type Database = {
         Insert: {
           countryFlag?: string | null;
           created_at?: string;
-          email?: string;
-          fullName?: string;
+          email: string;
+          fullName: string;
           id?: number;
           nationalID?: string | null;
           nationality?: string | null;

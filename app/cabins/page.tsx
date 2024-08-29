@@ -1,20 +1,19 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-
-import CabinList from '@/app/_components/CabinList';
-import Filter from '@/app/_components/Filter';
+import Filter from '../_components/Filter';
 import ContentLoader from '../_components/ContentLoader';
+import CabinList from '../_components/CabinList';
 import ReservationReminder from '../_components/ReservationReminder';
 
 export const metadata: Metadata = {
   title: 'Cabins',
 };
 
-export default function CabinsPage({
-  searchParams,
-}: {
+type CabinsPageProps = {
   searchParams: { [key: string]: string | string[] | undefined };
-}) {
+};
+
+export default function CabinsPage({ searchParams }: CabinsPageProps) {
   const filter: string = (searchParams?.capacity as string) ?? 'all';
 
   return (
