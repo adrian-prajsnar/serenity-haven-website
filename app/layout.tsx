@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { NextFont } from 'next/dist/compiled/@next/font';
 import { Josefin_Sans } from 'next/font/google';
-import { ReservationProvider } from './_contexts/ReservationContext';
+import { BookingProvider } from './_contexts/BookingContext';
 import '@/app/_styles/globals.css';
 import Header from './_components/Header';
 
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Header />
         <div className='flex-1 px-8 py-12 grid'>
           <main className='max-w-7xl mx-auto w-full'>
-            <ReservationProvider>{children}</ReservationProvider>
+            <BookingProvider>{children}</BookingProvider>
           </main>
         </div>
       </body>

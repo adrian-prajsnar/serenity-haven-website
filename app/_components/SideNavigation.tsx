@@ -16,8 +16,8 @@ const navLinks: { name: string; href: string; icon: JSX.Element }[] = [
     icon: <HomeIcon className='h-5 w-5 text-primary-600' />,
   },
   {
-    name: 'Reservations',
-    href: '/account/reservations',
+    name: 'Bookings',
+    href: '/account/bookings',
     icon: <CalendarDaysIcon className='h-5 w-5 text-primary-600' />,
   },
   {

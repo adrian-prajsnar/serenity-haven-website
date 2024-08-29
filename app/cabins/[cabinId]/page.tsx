@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { getCabin, getCabins } from '@/app/_lib/data-service';
 import Cabin from '@/app/_components/Cabin';
 import ContentLoader from '@/app/_components/ContentLoader';
-import Reservation from '@/app/_components/Reservation';
+import Booking from '@/app/_components/Bookings';
 
 type CabinPageProps = {
   params: {
@@ -33,11 +33,11 @@ export default async function CabinPage({ params }: CabinPageProps) {
 
       <div>
         <h2 className='text-5xl font-semibold text-center mb-10 text-accent-400'>
-          Reserve {cabin.name} today. Pay on arrival.
+          Book {cabin.name} today. Pay on arrival.
         </h2>
 
-        <Suspense fallback={<ContentLoader content='reservation' />}>
-          <Reservation cabin={cabin} />
+        <Suspense fallback={<ContentLoader content='booking' />}>
+          <Booking cabin={cabin} />
         </Suspense>
       </div>
     </div>

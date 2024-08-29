@@ -8,7 +8,7 @@ import {
   isSameDay,
   isWithinInterval,
 } from 'date-fns';
-import { useReservation } from '../_contexts/ReservationContext';
+import { useBooking } from '../_contexts/BookingContext';
 import { Tables } from '../_types/database.types';
 import { BookedDates } from '../_types/BookedDates';
 
@@ -36,7 +36,7 @@ export default function DateSelector({
   cabin,
   bookedDates,
 }: DateSelectorProps) {
-  const { range, setRange, resetRange } = useReservation();
+  const { range, setRange, resetRange } = useBooking();
 
   const displayRange: DateRange | undefined = isAlreadyBooked(
     range,

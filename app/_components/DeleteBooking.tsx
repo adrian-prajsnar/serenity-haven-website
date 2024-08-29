@@ -6,19 +6,19 @@ import { Tables } from '../_types/database.types';
 import { GuestBooking } from '../_types/GuestBooking';
 import SpinnerMini from './SpinnerMini';
 
-type DeleteReservationProps = {
+type DeleteBookingProps = {
   bookingId: Tables<'bookings'>['id'];
   onDelete: (bookingId: GuestBooking['id']) => Promise<void>;
 };
 
-export default function DeleteReservation({
+export default function DeleteBooking({
   bookingId,
   onDelete,
-}: DeleteReservationProps) {
+}: DeleteBookingProps) {
   const [isPending, startTransition] = useTransition();
 
   const handleDelete = () => {
-    if (confirm('Are you sure you want to delete this reservation?'))
+    if (confirm('Are you sure you want to delete this booking?'))
       startTransition(() => onDelete(bookingId));
   };
 

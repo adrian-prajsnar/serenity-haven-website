@@ -3,7 +3,7 @@
 import { createContext, useState, ReactNode, useContext } from 'react';
 import { DateRange, SelectRangeEventHandler } from 'react-day-picker';
 
-type ReservationContextType = {
+type BookingContextType = {
   range: DateRange;
   setRange: SelectRangeEventHandler;
   resetRange: () => void;
@@ -11,11 +11,9 @@ type ReservationContextType = {
 
 const initialState: DateRange = { from: undefined, to: undefined };
 
-const ReservationContext = createContext<ReservationContextType | undefined>(
-  undefined
-);
+const BookingContext = createContext<BookingContextType | undefined>(undefined);
 
-function ReservationProvider({ children }: { children: ReactNode }) {
+function BookingProvider({ children }: { children: ReactNode }) {
   const [range, setRange] = useState<DateRange>(initialState);
 
   const handleSetRange: SelectRangeEventHandler = selectedRange => {
@@ -25,21 +23,19 @@ function ReservationProvider({ children }: { children: ReactNode }) {
   const resetRange = () => setRange(initialState);
 
   return (
-    <ReservationContext.Provider
+    <BookingContext.Provider
       value={{ range, setRange: handleSetRange, resetRange }}
     >
       {children}
-    </ReservationContext.Provider>
+    </BookingContext.Provider>
   );
 }
 
-function useReservation() {
-  const context = useContext(ReservationContext);
+function useBooking() {
+  const context = useContext(BookingContext);
   if (context === undefined)
-    throw new Error(
-      'Reservation Context was used outside Reservation Provider.'
-    );
+    throw new Error('Booking Context was used outside Booking Provider.');
   return context;
 }
 
-export { ReservationProvider, useReservation };
+export { BookingProvider, useBooking };

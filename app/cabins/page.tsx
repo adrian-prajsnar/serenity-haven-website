@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import Filter from '../_components/Filter';
 import ContentLoader from '../_components/ContentLoader';
 import CabinList from '../_components/CabinList';
-import ReservationReminder from '../_components/ReservationReminder';
+import BookingReminder from '../_components/BookingReminder';
 
 export const metadata: Metadata = {
   title: 'Cabins',
@@ -36,7 +36,7 @@ export default function CabinsPage({ searchParams }: CabinsPageProps) {
 
       <Suspense fallback={<ContentLoader content='cabins' />} key={filter}>
         <CabinList filter={filter} />
-        <ReservationReminder />
+        <BookingReminder />
       </Suspense>
     </div>
   );

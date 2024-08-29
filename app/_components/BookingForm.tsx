@@ -4,18 +4,18 @@
 import { User } from 'next-auth';
 import { differenceInDays, formatISO } from 'date-fns';
 import { createBooking } from '../_lib/actions';
-import { useReservation } from '../_contexts/ReservationContext';
+import { useBooking } from '../_contexts/BookingContext';
 import { Tables } from '../_types/database.types';
 import { NewBookingData } from '../_types/NewBookingData';
 import ButtonSubmitForm from './ButtonSubmitForm';
 
-type ReservationFormProps = {
+type BookingFormProps = {
   cabin: Tables<'cabins'>;
   user: User;
 };
 
-export default function ReservationForm({ cabin, user }: ReservationFormProps) {
-  const { range, resetRange } = useReservation();
+export default function BookingForm({ cabin, user }: BookingFormProps) {
+  const { range, resetRange } = useBooking();
   const { maxCapacity, regularPrice, discount, id: cabinId } = cabin;
   const { from: startDate, to: endDate } = range;
   const numNights: number = differenceInDays(
@@ -51,7 +51,6 @@ export default function ReservationForm({ cabin, user }: ReservationFormProps) {
       </div>
 
       <form
-        // action={createBookingWithData}
         action={async (formData: FormData) => {
           await createBookingWithData(formData);
           resetRange();

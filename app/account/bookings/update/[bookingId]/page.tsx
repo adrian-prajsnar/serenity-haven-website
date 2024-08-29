@@ -1,22 +1,22 @@
 import { Metadata } from 'next';
 import { getBooking, getCabin } from '@/app/_lib/data-service';
-import { updateReservation } from '@/app/_lib/actions';
+import { updateBooking } from '@/app/_lib/actions';
 import { Tables } from '@/app/_types/database.types';
 import ButtonSubmitForm from '@/app/_components/ButtonSubmitForm';
 
 export const metadata: Metadata = {
-  title: 'Update reservation',
+  title: 'Update booking',
 };
 
-type UpdateReservationPageProps = {
+type UpdateBookingPageProps = {
   params: {
     bookingId: string;
   };
 };
 
-export default async function UpdateReservationPage({
+export default async function UpdateBookingPage({
   params,
-}: UpdateReservationPageProps) {
+}: UpdateBookingPageProps) {
   const bookingId: Tables<'bookings'>['id'] = Number(params.bookingId);
   const { numGuests, observations, cabinId }: Tables<'bookings'> =
     await getBooking(Number(params.bookingId));
@@ -25,11 +25,11 @@ export default async function UpdateReservationPage({
   return (
     <div>
       <h2 className='font-semibold text-2xl text-accent-400 mb-7'>
-        Edit Reservation #{bookingId}
+        Update booking #{bookingId}
       </h2>
 
       <form
-        action={updateReservation}
+        action={updateBooking}
         className='bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col'
       >
         <input type='hidden' name='bookingId' value={bookingId} />
@@ -68,7 +68,7 @@ export default async function UpdateReservationPage({
 
         <div className='flex justify-end items-center gap-6'>
           <ButtonSubmitForm
-            content='Update reservation'
+            content='Update booking'
             loadingContent='Updating...'
           />
         </div>

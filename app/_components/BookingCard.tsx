@@ -3,22 +3,19 @@ import Link from 'next/link';
 import { format, formatDistance, isPast, isToday, parseISO } from 'date-fns';
 import { PencilSquareIcon } from '@heroicons/react/24/solid';
 import { GuestBooking } from '../_types/GuestBooking';
-import DeleteReservation from '@/app/_components/DeleteReservation';
+import DeleteBooking from '@/app/_components/DeleteBooking';
 
 export const formatDistanceFromNow = (dateStr: string) =>
   formatDistance(parseISO(dateStr), new Date(), {
     addSuffix: true,
   }).replace('about ', '');
 
-type ReservationCardProps = {
+type BookingCardProps = {
   booking: GuestBooking;
   onDelete: (bookingId: GuestBooking['id']) => Promise<void>;
 };
 
-export default function ReservationCard({
-  booking,
-  onDelete,
-}: ReservationCardProps) {
+export default function BookingCard({ booking, onDelete }: BookingCardProps) {
   return (
     <div className='flex border border-primary-800'>
       <div className='relative h-32 aspect-square'>
@@ -72,13 +69,13 @@ export default function ReservationCard({
         {!isPast(booking.startDate) && (
           <>
             <Link
-              href={`/account/reservations/update/${booking.id}`}
+              href={`/account/bookings/update/${booking.id}`}
               className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900'
             >
               <PencilSquareIcon className='h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors' />
-              <span className='mt-1'>Edit</span>
+              <span className='mt-1'>Update</span>
             </Link>
-            <DeleteReservation bookingId={booking.id} onDelete={onDelete} />
+            <DeleteBooking bookingId={booking.id} onDelete={onDelete} />
           </>
         )}
       </div>

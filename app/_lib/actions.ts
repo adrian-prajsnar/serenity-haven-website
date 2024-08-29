@@ -6,12 +6,43 @@ import { isBefore, isWithinInterval } from 'date-fns';
 import { supabase } from './supabase';
 import { signIn, signOut } from './auth';
 import { getBookedDatesByCabinId } from './data-service';
+import { Tables, TablesInsert } from '../_types/database.types';
+import { NewBookingData } from '../_types/NewBookingData';
 import {
   isAuthenticated,
   isAuthorizedToMutateThisBooking,
 } from '../_utils/helpers';
-import { Tables, TablesInsert } from '../_types/database.types';
-import { NewBookingData } from '../_types/NewBookingData';
+
+export async function updateGuestProfile(formData: FormData): Promise<void> {
+  const session = await isAuthenticated();
+
+  const nationalID = formData.get(
+    'nationalID'
+  ) as TablesInsert<'guests'>['nationalID'];
+  const nationalityData = formData.get('nationality') as string;
+  const [nationality, countryFlag] = nationalityData.split('%') as [
+    TablesInsert<'guests'>['nationality'],
+    TablesInsert<'guests'>['countryFlag']
+  ];
+
+  if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID as string))
+    throw new Error('Please provide a valid national ID.');
+
+  const updateData = {
+    nationality,
+    countryFlag,
+    nationalID,
+  };
+
+  const { error } = await supabase
+    .from('guests')
+    .update(updateData)
+    .eq('id', session.user?.guestId as number);
+
+  if (error) throw new Error('Profile could not be updated.');
+
+  revalidatePath('/account/profile');
+}
 
 export async function createBooking(
   newBookingData: NewBookingData,
@@ -56,51 +87,7 @@ export async function createBooking(
   redirect('/cabins/acknowledgement');
 }
 
-export async function updateProfile(formData: FormData) {
-  const session = await isAuthenticated();
-
-  const nationalID = formData.get(
-    'nationalID'
-  ) as Tables<'guests'>['nationalID'];
-  const nationalityData = formData.get('nationality') as string;
-  const [nationality, countryFlag] = nationalityData.split('%') as [
-    Tables<'guests'>['nationality'],
-    Tables<'guests'>['countryFlag']
-  ];
-
-  if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID as string))
-    throw new Error('Please provide a valid national ID.');
-
-  const updateData = {
-    nationality,
-    countryFlag,
-    nationalID,
-  };
-
-  const { error } = await supabase
-    .from('guests')
-    .update(updateData)
-    .eq('id', session.user?.guestId as number);
-
-  if (error) throw new Error('Profile could not be updated.');
-
-  revalidatePath('/account/profile');
-}
-
-export async function deleteReservation(bookingId: Tables<'bookings'>['id']) {
-  await isAuthorizedToMutateThisBooking(bookingId);
-
-  const { error } = await supabase
-    .from('bookings')
-    .delete()
-    .eq('id', bookingId);
-
-  if (error) throw new Error('Booking could not be deleted.');
-
-  revalidatePath('/account/reservations');
-}
-
-export async function updateReservation(formData: FormData) {
+export async function updateBooking(formData: FormData) {
   const bookingId: Tables<'bookings'>['id'] = Number(formData.get('bookingId'));
   await isAuthorizedToMutateThisBooking(bookingId);
 
@@ -119,8 +106,21 @@ export async function updateReservation(formData: FormData) {
 
   if (error) throw new Error('Booking could not be updated.');
 
-  revalidatePath(`/account/reservations/update/${bookingId}`);
-  redirect('/account/reservations');
+  revalidatePath(`/account/bookings/update/${bookingId}`);
+  redirect('/account/bookings');
+}
+
+export async function deleteBooking(bookingId: Tables<'bookings'>['id']) {
+  await isAuthorizedToMutateThisBooking(bookingId);
+
+  const { error } = await supabase
+    .from('bookings')
+    .delete()
+    .eq('id', bookingId);
+
+  if (error) throw new Error('Booking could not be deleted.');
+
+  revalidatePath('/account/bookings');
 }
 
 export async function signInAction(): Promise<void> {

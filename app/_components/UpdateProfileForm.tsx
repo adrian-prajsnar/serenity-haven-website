@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { ReactNode } from 'react';
-import { updateProfile } from '../_lib/actions';
+import { updateGuestProfile } from '../_lib/actions';
 import { Tables } from '../_types/database.types';
 import ButtonSubmitForm from './ButtonSubmitForm';
 
@@ -9,13 +9,13 @@ type UpdateProfileFormProps = {
   guest: Tables<'guests'> | null;
 };
 
-export default function UpdateProfileForm({
+export default function UpdateGuestProfileForm({
   children,
   guest,
 }: UpdateProfileFormProps) {
   return (
     <form
-      action={updateProfile}
+      action={updateGuestProfile}
       className='bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col'
     >
       <div className='space-y-2'>

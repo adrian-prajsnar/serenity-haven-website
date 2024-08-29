@@ -2,14 +2,14 @@
 
 import { useOptimistic } from 'react';
 import { GuestBooking } from '../_types/GuestBooking';
-import { deleteReservation } from '../_lib/actions';
-import ReservationCard from './ReservationCard';
+import { deleteBooking } from '../_lib/actions';
+import BookingCard from './BookingCard';
 
-type ReservationListProps = {
+type BookingListProps = {
   bookings: GuestBooking[];
 };
 
-export default function ReservationList({ bookings }: ReservationListProps) {
+export default function BookingList({ bookings }: BookingListProps) {
   const [optimisticBookings, optimisticDelete] = useOptimistic(
     bookings,
     (currentBookings, bookingId: GuestBooking['id']) => {
@@ -21,13 +21,13 @@ export default function ReservationList({ bookings }: ReservationListProps) {
 
   const handleDelete = async (bookingId: GuestBooking['id']) => {
     optimisticDelete(bookingId);
-    await deleteReservation(bookingId);
+    await deleteBooking(bookingId);
   };
 
   return (
     <ul className='space-y-6'>
       {optimisticBookings.map(booking => (
-        <ReservationCard
+        <BookingCard
           booking={booking}
           onDelete={handleDelete}
           key={booking.id}
