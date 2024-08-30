@@ -17,7 +17,7 @@ export default async function AboutPage() {
   return (
     <div className='grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center'>
       <div className='col-span-3'>
-        <h1 className='text-4xl mb-10 text-accent-400 font-medium'>
+        <h1 className='text-4xl mb-10 text-accent-700 font-medium'>
           Welcome to Serenity Haven
         </h1>
 
@@ -62,7 +62,7 @@ export default async function AboutPage() {
       </div>
 
       <div className='col-span-3'>
-        <h1 className='text-4xl mb-10 text-accent-400 font-medium'>
+        <h1 className='text-4xl mb-10 text-accent-700 font-medium'>
           Managed by our family since 1962
         </h1>
 
@@ -85,7 +85,7 @@ export default async function AboutPage() {
           <div>
             <Link
               href='/cabins'
-              className='inline-block mt-4 bg-accent-500 px-8 py-5 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all'
+              className='inline-block mt-4 bg-accent-700 px-8 py-5 text-primary-50 text-lg font-semibold hover:bg-accent-800 transition-all'
             >
               Explore our luxury cabins
             </Link>
