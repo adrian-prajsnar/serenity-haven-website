@@ -33,7 +33,11 @@
 /* For data picker */
 .rdp {
   --rdp-cell-size: 32px !important;
-  --rdp-accent-color: theme('colors.accent.500') !important;
-  --rdp-background-color: theme('colors.accent.600') !important;
+  --rdp-accent-color: theme('colors.accent.700') !important;
+  --rdp-background-color: theme('colors.primary.300') !important;
   margin: 0 !important;
+}
+
+.rdp-caption_label {
+  font-weight: 600 !important;
 }
