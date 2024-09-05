@@ -8,7 +8,7 @@ export default function CabinPageNotFound() {
       </h1>
       <Link
         href='/cabins'
-        className='inline-block bg-accent-500 text-primary-800 px-6 py-3 text-lg'
+        className='inline-block bg-accent-700 text-primary-50 px-6 py-3 text-lg'
       >
         Back to all cabins
       </Link>

@@ -70,8 +70,8 @@ function FilterButton({
       className={`${
         filter === activeFilter
           ? 'hover:bg-accent-700 bg-accent-700 text-primary-50'
-          : ''
-      } px-5 py-2 hover:bg-primary-200`}
+          : 'hover:bg-primary-200'
+      } px-5 py-2`}
       onClick={() => handleFilter(filter)}
     >
       {children}

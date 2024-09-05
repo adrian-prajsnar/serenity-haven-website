@@ -12,7 +12,7 @@ export default function RootError({ error, reset }: RootErrorProps) {
       <p className='text-lg'>{error.message}</p>
 
       <button
-        className='inline-block bg-accent-500 text-primary-800 px-6 py-3 text-lg'
+        className='inline-block bg-accent-700 text-primary-50 px-6 py-3 text-lg'
         onClick={() => reset()}
       >
         Try again
