@@ -4,7 +4,7 @@
 
 ## Description
 
-The project is a website for Serenity Haven hotel, where guests can view information about the hotel, currently available cabins, book nights, and manage their bookings and account. Full-stack application built using **Next.js** & **TypeScript** with **Supabase** & **NextAuth**.
+The project is a website for Serenity Haven hotel, where guests can view information about the hotel, currently available cabins, book nights, and manage their bookings and account. Full-stack application built using **Next.js** & **TypeScript** with **Tailwind CSS**, **Supabase** & **NextAuth**.
 
 **Features:**
 
