@@ -8,8 +8,8 @@ import Header from './_components/Header';
 
 export const metadata: Metadata = {
   title: {
-    template: 'The Wild Oasis # %s',
-    default: 'The Wild Oasis',
+    template: 'Serenity Haven # %s',
+    default: 'Serenity Haven',
   },
   description:
     'Luxury hut hotel in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests.',
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       <body
-        className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
+        className={`${josefin.className} antialiased bg-primary-0 text-primary-700 min-h-screen flex flex-col relative`}
       >
         <Header />
         <div className='flex-1 px-8 py-12 grid'>

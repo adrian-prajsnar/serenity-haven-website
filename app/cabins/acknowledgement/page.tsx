@@ -7,8 +7,8 @@ export default function AcknowledgementPage() {
         Thank you for your reservation!
       </h1>
       <Link
-        href='/account/reservations'
-        className='underline text-xl text-accent-500 inline-block'
+        href='/account/bookings'
+        className='underline text-xl text-accent-700 inline-block'
       >
         Manage your reservations &rarr;
       </Link>

@@ -17,13 +17,13 @@ type BookingCardProps = {
 
 export default function BookingCard({ booking, onDelete }: BookingCardProps) {
   return (
-    <div className='flex border border-primary-800'>
+    <div className='flex border border-primary-400'>
       <div className='relative h-32 aspect-square'>
         <Image
           src={booking.cabins?.image ?? ''}
           alt={`Cabin ${booking.cabins?.name}`}
           fill
-          className='object-cover border-r border-primary-800'
+          className='object-cover border-r border-primary-400'
         />
       </div>
 
@@ -33,17 +33,17 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
             {booking.numNights} nights in Cabin {booking.cabins?.name}
           </h3>
           {isPast(new Date(booking.startDate)) ? (
-            <span className='bg-yellow-800 text-yellow-200 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm'>
+            <span className='bg-yellow-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm'>
               past
             </span>
           ) : (
-            <span className='bg-green-800 text-green-200 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm'>
+            <span className='bg-green-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm'>
               upcoming
             </span>
           )}
         </div>
 
-        <p className='text-lg text-primary-300'>
+        <p className='text-lg text-primary-600'>
           {format(new Date(booking.startDate), 'EEE, MMM dd yyyy')} (
           {isToday(new Date(booking.startDate))
             ? 'Today'
@@ -52,27 +52,27 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
         </p>
 
         <div className='flex gap-5 mt-auto items-baseline'>
-          <p className='text-xl font-semibold text-accent-400'>
+          <p className='text-xl font-semibold text-accent-700'>
             ${booking.totalPrice}
           </p>
-          <p className='text-primary-300'>&bull;</p>
-          <p className='text-lg text-primary-300'>
+          <p className='text-primary-600'>&bull;</p>
+          <p className='text-lg text-primary-600'>
             {booking.numGuests} guest{booking.numGuests > 1 && 's'}
           </p>
-          <p className='ml-auto text-sm text-primary-400'>
+          <p className='ml-auto text-sm text-primary-500'>
             Booked {format(new Date(booking.created_at), 'EEE, MMM dd yyyy, p')}
           </p>
         </div>
       </div>
 
-      <div className='flex flex-col border-l border-primary-800 w-[100px]'>
+      <div className='flex flex-col border-l border-primary-400 w-[100px]'>
         {!isPast(booking.startDate) && (
           <>
             <Link
               href={`/account/bookings/update/${booking.id}`}
-              className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900'
+              className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-600 border-b border-primary-400 flex-grow px-3 hover:bg-accent-700 transition-colors hover:text-primary-50'
             >
-              <PencilSquareIcon className='h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors' />
+              <PencilSquareIcon className='h-5 w-5 text-primary-500 group-hover:text-primary-200 transition-colors' />
               <span className='mt-1'>Update</span>
             </Link>
             <DeleteBooking bookingId={booking.id} onDelete={onDelete} />

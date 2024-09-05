@@ -16,14 +16,14 @@ export default async function BookingsPage() {
 
   return (
     <div>
-      <h2 className='font-semibold text-2xl text-accent-400 mb-7'>
+      <h2 className='font-semibold text-2xl text-accent-700 mb-7'>
         Your bookings
       </h2>
 
       {bookings.length === 0 ? (
         <p className='text-lg'>
           You have no bookings yet. Check out our{' '}
-          <a className='underline text-accent-500' href='/cabins'>
+          <a className='underline text-accent-700' href='/cabins'>
             luxury cabins &rarr;
           </a>
         </p>

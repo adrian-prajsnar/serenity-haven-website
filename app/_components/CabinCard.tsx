@@ -7,25 +7,25 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
-    <div className='flex border-primary-800 border'>
+    <div className='flex border-primary-400 border'>
       <div className='flex-1 relative'>
         <Image
           src={image || ''}
           fill
           alt={`Cabin ${name}`}
-          className='object-cover border-r border-primary-800'
+          className='object-cover border-r border-primary-400'
         />
       </div>
 
       <div className='flex-grow'>
-        <div className='pt-5 pb-4 px-7 bg-primary-950'>
-          <h3 className='text-accent-500 font-semibold text-2xl mb-3'>
+        <div className='pt-5 pb-4 px-7'>
+          <h3 className='text-accent-700 font-semibold text-2xl mb-3'>
             Cabin {name}
           </h3>
 
           <div className='flex gap-3 items-center mb-2'>
-            <UsersIcon className='h-5 w-5 text-primary-600' />
-            <p className='text-lg text-primary-200'>
+            <UsersIcon className='h-5 w-5 text-primary-500' />
+            <p className='text-lg'>
               For up to <span className='font-bold'>{maxCapacity}</span> guests
             </p>
           </div>
@@ -36,21 +36,21 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
                 <span className='text-3xl font-[350]'>
                   ${regularPrice && regularPrice - discount}
                 </span>
-                <span className='line-through font-semibold text-primary-600'>
+                <span className='line-through font-semibold text-primary-400'>
                   ${regularPrice}
                 </span>
               </>
             ) : (
               <span className='text-3xl font-[350]'>${regularPrice}</span>
             )}
-            <span className='text-primary-200'>/ night</span>
+            <span className='text-primary-600'>/ night</span>
           </p>
         </div>
 
-        <div className='bg-primary-950 border-t border-t-primary-800 text-right'>
+        <div className='border-t border-t-primary-400 text-right'>
           <Link
             href={`/cabins/${id}`}
-            className='border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900'
+            className='border-l border-primary-400 py-4 px-6 inline-block hover:bg-accent-700 transition-all hover:text-primary-50'
           >
             Details & bookings &rarr;
           </Link>

@@ -20,8 +20,10 @@ export default function NavLink({ link, session }: NavLinkProps) {
     <li>
       <Link
         href={link.href}
-        className={`hover:text-accent-400 transition-colors flex items-center gap-4 ${
-          pathname.startsWith(link.href) ? 'text-accent-400' : ''
+        className={`${
+          pathname === '/' ? 'text-primary-50' : 'text-primary-700'
+        } hover:underline underline-offset-8 flex items-center gap-4 ${
+          pathname.startsWith(link.href) ? 'underline underline-offset-8' : ''
         }`}
       >
         {link.href === '/account' && session?.user && (

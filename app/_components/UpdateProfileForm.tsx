@@ -16,14 +16,14 @@ export default function UpdateGuestProfileForm({
   return (
     <form
       action={updateGuestProfile}
-      className='bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col'
+      className='bg-primary-100 py-8 px-12 text-lg flex gap-6 flex-col'
     >
       <div className='space-y-2'>
         <label>Full name</label>
         <input
           disabled
           defaultValue={guest?.fullName}
-          className='px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400'
+          className='px-5 py-3 w-full border border-primary-300 rounded-sm disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-primary-500'
         />
       </div>
 
@@ -32,18 +32,20 @@ export default function UpdateGuestProfileForm({
         <input
           disabled
           defaultValue={guest?.email}
-          className='px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400'
+          className='px-5 py-3 w-full border border-primary-300 rounded-sm disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-primary-500'
         />
       </div>
 
       <div className='space-y-2'>
         <div className='flex items-center justify-between'>
           <label htmlFor='nationality'>Where are you from?</label>
-          <img
-            src={guest?.countryFlag ?? ''}
-            alt='Country flag'
-            className='h-5 rounded-sm'
-          />
+          {guest?.countryFlag && (
+            <img
+              src={guest?.countryFlag ?? ''}
+              alt='Country flag'
+              className='h-5 rounded-sm'
+            />
+          )}
         </div>
 
         {children}
@@ -54,7 +56,7 @@ export default function UpdateGuestProfileForm({
         <input
           name='nationalID'
           defaultValue={guest?.nationalID ?? ''}
-          className='px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm'
+          className='px-5 py-3 w-full border border-primary-300 rounded-sm'
         />
       </div>
 
