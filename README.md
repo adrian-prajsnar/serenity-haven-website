@@ -8,14 +8,10 @@ The project is a website for Serenity Haven hotel, where guests can view informa
 
 **Features:**
 
-- Authentication & authorization
-- Allow users to log in with their Google Account
-- Smooth navigation, loading & UX while visiting the website
-- Server data fetching & display of cabins/bookings data
-- Cabin sorting
-- Users can see when the cabin is available and book it with react-day-picker
-- Users can update and delete their bookings
-- Users can update their account
+- Authentication & Authorization using NextAuth.
+- Cabins Display: Users can see all cabins, sort them by size, view the details and book them if they are available.
+- About Page: Users can view the information about hotel.
+- Guest Area: Users can see their bookings, update or delete them. Also they can update their profile.
 
 ## Table of Contents
 

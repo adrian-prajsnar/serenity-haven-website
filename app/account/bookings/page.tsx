@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Metadata } from 'next';
 import { auth } from '@/app/_lib/auth';
 import { getBookings } from '@/app/_lib/data-service';
@@ -23,9 +24,9 @@ export default async function BookingsPage() {
       {bookings.length === 0 ? (
         <p className='text-lg'>
           You have no bookings yet. Check out our{' '}
-          <a className='underline text-accent-700' href='/cabins'>
+          <Link className='underline text-accent-700' href='/cabins'>
             luxury cabins &rarr;
-          </a>
+          </Link>
         </p>
       ) : (
         <BookingList bookings={bookings} />
