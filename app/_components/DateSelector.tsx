@@ -56,9 +56,9 @@ export default function DateSelector({
   const { minBookingLength, maxBookingLength } = settings;
 
   return (
-    <div className='flex flex-col justify-between'>
+    <div className='flex flex-col justify-between rounded-l-lg'>
       <DayPicker
-        className='pt-12 place-self-center'
+        className='pt-12 place-self-center rounded-tl-lg'
         mode='range'
         onSelect={setRange}
         selected={displayRange}
@@ -75,7 +75,7 @@ export default function DateSelector({
         }
       />
 
-      <div className='flex items-center justify-between px-8 bg-accent-700 text-primary-50 h-[72px]'>
+      <div className='flex items-center justify-between px-8 bg-accent-700 text-primary-50 h-[72px] rounded-bl-lg'>
         <div className='flex items-baseline gap-6'>
           <p className='flex gap-2 items-baseline'>
             {discount && discount > 0 ? (
@@ -92,7 +92,7 @@ export default function DateSelector({
           </p>
           {numNights ? (
             <>
-              <p className='bg-accent-800 px-3 py-2 text-2xl'>
+              <p className='bg-accent-800 px-3 py-2 text-2xl rounded-lg'>
                 <span>&times;</span> <span>{numNights}</span>
               </p>
               <p>
@@ -105,7 +105,7 @@ export default function DateSelector({
 
         {range?.from || range?.to ? (
           <button
-            className='border border-primary-400 py-2 px-4 text-sm font-semibold'
+            className='border border-primary-400 py-2 px-4 text-sm font-semibold rounded-lg'
             onClick={resetRange}
           >
             Clear

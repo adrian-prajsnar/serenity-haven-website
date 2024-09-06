@@ -16,7 +16,7 @@ export default function Filter() {
   };
 
   return (
-    <div className='border border-primary-400 flex'>
+    <div className='border border-primary-400 flex rounded-lg'>
       <FilterButton
         filter='all'
         handleFilter={handleFilter}
@@ -71,7 +71,7 @@ function FilterButton({
         filter === activeFilter
           ? 'hover:bg-accent-700 bg-accent-700 text-primary-50'
           : 'hover:bg-primary-200'
-      } px-5 py-2`}
+      } px-5 py-2 first-of-type:rounded-l-lg last-of-type:rounded-r-lg`}
       onClick={() => handleFilter(filter)}
     >
       {children}
