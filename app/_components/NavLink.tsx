@@ -22,8 +22,8 @@ export default function NavLink({ link, session }: NavLinkProps) {
         href={link.href}
         className={`${
           pathname === '/' ? 'text-primary-50' : 'text-primary-700'
-        } hover:underline underline-offset-8 flex items-center gap-4 ${
-          pathname.startsWith(link.href) ? 'underline underline-offset-8' : ''
+        } font-medium border-b-2 border-transparent flex items-center gap-4 transition-colors hover:border-primary-400 ${
+          pathname.startsWith(link.href) ? 'border-b-primary-400' : ''
         }`}
       >
         {link.href === '/account' && session?.user && (
