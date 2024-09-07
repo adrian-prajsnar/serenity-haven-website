@@ -30,7 +30,7 @@ export default async function ProfilePage() {
         <SelectCountry
           name='nationality'
           id='nationality'
-          className='px-5 py-[0.96875rem] w-full border border-primary-300 rounded-sm'
+          className='px-5 py-[0.96875rem] w-full border border-primary-300 rounded-md'
           defaultCountry={guest?.nationality ?? ''}
         />
       </UpdateProfileForm>

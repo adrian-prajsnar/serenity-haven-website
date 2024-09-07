@@ -17,13 +17,13 @@ type BookingCardProps = {
 
 export default function BookingCard({ booking, onDelete }: BookingCardProps) {
   return (
-    <div className='flex border border-primary-400'>
+    <div className='flex border border-primary-400 rounded-lg'>
       <div className='relative h-32 aspect-square'>
         <Image
           src={booking.cabins?.image ?? ''}
           alt={`Cabin ${booking.cabins?.name}`}
           fill
-          className='object-cover border-r border-primary-400'
+          className='object-cover border-r border-primary-400 rounded-l-lg'
         />
       </div>
 
@@ -33,11 +33,11 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
             {booking.numNights} nights in Cabin {booking.cabins?.name}
           </h3>
           {isPast(new Date(booking.startDate)) ? (
-            <span className='bg-yellow-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm'>
+            <span className='bg-yellow-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-lg'>
               past
             </span>
           ) : (
-            <span className='bg-green-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-sm'>
+            <span className='bg-green-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-lg'>
               upcoming
             </span>
           )}
@@ -70,7 +70,7 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
           <>
             <Link
               href={`/account/bookings/update/${booking.id}`}
-              className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-600 border-b border-primary-400 flex-grow px-3 hover:bg-accent-700 transition-colors hover:text-primary-50'
+              className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-600 border-b border-primary-400 flex-grow px-3 rounded-tr-lg hover:bg-accent-700 transition-colors hover:text-primary-50'
             >
               <PencilSquareIcon className='h-5 w-5 text-primary-500 group-hover:text-primary-200 transition-colors' />
               <span className='mt-1'>Update</span>
