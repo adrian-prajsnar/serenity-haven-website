@@ -7,13 +7,13 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (
-    <div className='flex border-primary-400 border'>
+    <div className='flex border-primary-400 border rounded-lg'>
       <div className='flex-1 relative'>
         <Image
           src={image || ''}
           fill
           alt={`Cabin ${name}`}
-          className='object-cover border-r border-primary-400'
+          className='object-cover border-r border-primary-400 rounded-l-lg'
         />
       </div>
 
@@ -26,7 +26,8 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
           <div className='flex gap-3 items-center mb-2'>
             <UsersIcon className='h-5 w-5 text-primary-500' />
             <p className='text-lg'>
-              For up to <span className='font-bold'>{maxCapacity}</span> guests
+              For up to <span className='font-semibold'>{maxCapacity}</span>{' '}
+              guests
             </p>
           </div>
 
@@ -50,7 +51,7 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
         <div className='border-t border-t-primary-400 text-right'>
           <Link
             href={`/cabins/${id}`}
-            className='border-l border-primary-400 py-4 px-6 inline-block hover:bg-accent-700 transition-all hover:text-primary-50'
+            className='border-l border-primary-400 py-4 px-6 inline-block rounded-br-lg hover:bg-accent-700 transition-all hover:text-primary-50'
           >
             Details & bookings &rarr;
           </Link>

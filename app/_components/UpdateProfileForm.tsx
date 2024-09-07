@@ -16,14 +16,14 @@ export default function UpdateGuestProfileForm({
   return (
     <form
       action={updateGuestProfile}
-      className='bg-primary-100 py-8 px-12 text-lg flex gap-6 flex-col'
+      className='bg-primary-100 py-8 px-12 text-lg flex gap-6 flex-col rounded-lg'
     >
       <div className='space-y-2'>
         <label>Full name</label>
         <input
           disabled
           defaultValue={guest?.fullName}
-          className='px-5 py-3 w-full border border-primary-300 rounded-sm disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-primary-500'
+          className='px-5 py-3 w-full border border-primary-300 rounded-md disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-primary-500'
         />
       </div>
 
@@ -32,7 +32,7 @@ export default function UpdateGuestProfileForm({
         <input
           disabled
           defaultValue={guest?.email}
-          className='px-5 py-3 w-full border border-primary-300 rounded-sm disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-primary-500'
+          className='px-5 py-3 w-full border border-primary-300 rounded-md disabled:cursor-not-allowed disabled:bg-primary-300 disabled:text-primary-500'
         />
       </div>
 
@@ -41,9 +41,9 @@ export default function UpdateGuestProfileForm({
           <label htmlFor='nationality'>Where are you from?</label>
           {guest?.countryFlag && (
             <img
-              src={guest?.countryFlag ?? ''}
+              src={guest?.countryFlag as string}
               alt='Country flag'
-              className='h-5 rounded-sm'
+              className='h-5 rounded'
             />
           )}
         </div>
@@ -56,7 +56,7 @@ export default function UpdateGuestProfileForm({
         <input
           name='nationalID'
           defaultValue={guest?.nationalID ?? ''}
-          className='px-5 py-3 w-full border border-primary-300 rounded-sm'
+          className='px-5 py-3 w-full border border-primary-300 rounded-md'
         />
       </div>
 

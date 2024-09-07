@@ -36,7 +36,7 @@ export default function SideNavigation() {
         {navLinks.map(link => (
           <li key={link.name}>
             <Link
-              className={`py-3 px-5 hover:bg-primary-200  transition-colors flex items-center gap-4 font-medium ${
+              className={`py-3 px-5 hover:bg-primary-200  transition-colors flex items-center gap-4 font-medium rounded-l-lg ${
                 pathname === link.href ? 'bg-primary-200' : ''
               }`}
               href={link.href}

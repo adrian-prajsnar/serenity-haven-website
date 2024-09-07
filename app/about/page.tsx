@@ -45,6 +45,7 @@ export default async function AboutPage() {
 
       <div className='col-span-2'>
         <Image
+          className='rounded-lg'
           src={image1}
           alt='Family sitting around a fire pit in front of cabin'
           placeholder='blur'
@@ -54,6 +55,7 @@ export default async function AboutPage() {
 
       <div className='col-span-2'>
         <Image
+          className='rounded-lg'
           src={image2}
           alt='Family that manages Serenity Haven'
           placeholder='blur'
@@ -85,7 +87,7 @@ export default async function AboutPage() {
           <div>
             <Link
               href='/cabins'
-              className='inline-block mt-4 bg-accent-700 px-8 py-5 text-primary-50 text-lg font-semibold hover:bg-accent-800 transition-all'
+              className='inline-block mt-4 bg-accent-700 px-8 py-5 text-primary-50 text-lg font-semibold rounded-full hover:bg-accent-800 transition-all'
             >
               Explore our luxury cabins
             </Link>

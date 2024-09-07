@@ -17,7 +17,7 @@ export default async function Booking({ cabin }: BookingProps) {
   ]);
 
   return (
-    <div className='grid grid-cols-2 border border-primary-400 min-h-[400px]'>
+    <div className='grid grid-cols-2 border border-primary-400 min-h-[400px] rounded-lg'>
       <DateSelector
         settings={settings}
         bookedDates={bookedDates}

@@ -30,7 +30,7 @@ export default async function UpdateBookingPage({
 
       <form
         action={updateBooking}
-        className='bg-primary-100 py-8 px-12 text-lg flex gap-6 flex-col'
+        className='bg-primary-100 py-8 px-12 text-lg flex gap-6 flex-col rounded-lg'
       >
         <input type='hidden' name='bookingId' value={bookingId} />
 
@@ -40,7 +40,7 @@ export default async function UpdateBookingPage({
             name='numGuests'
             id='numGuests'
             defaultValue={numGuests}
-            className='px-5 py-[0.96875rem] w-full border border-primary-300 rounded-sm'
+            className='px-5 py-[0.96875rem] w-full border border-primary-300 rounded-md'
             required
           >
             <option value='' key=''>
@@ -62,7 +62,7 @@ export default async function UpdateBookingPage({
             name='observations'
             id='observations'
             defaultValue={observations ?? ''}
-            className='px-5 py-3 w-full border border-primary-300 rounded-sm'
+            className='px-5 py-3 w-full border border-primary-300 rounded-md'
           />
         </div>
 
