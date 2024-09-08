@@ -19,14 +19,14 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
 
       <div className='flex-grow'>
         <div className='pt-5 pb-4 px-7'>
-          <h3 className='text-accent-700 font-semibold text-2xl mb-3'>
+          <h3 className='text-accent-700 font-medium text-2xl mb-3'>
             Cabin {name}
           </h3>
 
           <div className='flex gap-3 items-center mb-2'>
             <UsersIcon className='h-5 w-5 text-primary-500' />
             <p className='text-lg'>
-              For up to <span className='font-semibold'>{maxCapacity}</span>{' '}
+              Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
               guests
             </p>
           </div>

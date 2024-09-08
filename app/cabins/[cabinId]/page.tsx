@@ -33,7 +33,8 @@ export default async function CabinPage({ params }: CabinPageProps) {
 
       <div>
         <h2 className='text-5xl font-semibold text-center mb-10 text-accent-700'>
-          Book {cabin.name} today. Pay on arrival.
+          Book <span className='font-bold'>{cabin.name}</span> now. Pay when you
+          arrive.
         </h2>
 
         <Suspense fallback={<ContentLoader content='booking' />}>

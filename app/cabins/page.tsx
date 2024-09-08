@@ -19,15 +19,14 @@ export default function CabinsPage({ searchParams }: CabinsPageProps) {
   return (
     <div>
       <h1 className='text-4xl mb-5 text-accent-700 font-medium'>
-        Our Luxury Cabins
+        Our Elegant Retreats
       </h1>
       <p className='text-primary-700 text-lg mb-10'>
-        Cozy yet luxurious cabins, located right in the heart of the Italian
-        Dolomites. Imagine waking up to beautiful mountain views, spending your
-        days exploring the dark forests around, or just relaxing in your private
-        hot tub under the stars. Enjoy nature&apos;s beauty in your own little
-        home away from home. The perfect spot for a peaceful, calm vacation.
-        Welcome to paradise.
+        Discover the perfect blend of comfort and elegance in our cabins,
+        situated in the breathtaking Tatry Mountains of Poland. Enjoy stunning
+        mountain vistas, serene forest explorations, and relaxing evenings in
+        your private hot tub under the stars. Your personal retreat awaits for a
+        tranquil and memorable escape.
       </p>
 
       <div className='flex justify-end mb-8'>
