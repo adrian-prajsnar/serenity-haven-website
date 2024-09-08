@@ -58,7 +58,7 @@ export default function DateSelector({
   return (
     <div className='flex flex-col justify-between rounded-l-lg'>
       <DayPicker
-        className='pt-12 place-self-center rounded-tl-lg'
+        className='pt-12 place-self-center rounded-tl-lg scale-95'
         mode='range'
         onSelect={setRange}
         selected={displayRange}
@@ -80,24 +80,24 @@ export default function DateSelector({
           <p className='flex gap-2 items-baseline'>
             {discount && discount > 0 ? (
               <>
-                <span className='text-2xl'>${regularPrice - discount}</span>
-                <span className='line-through text-primary-400'>
+                <span className='text-xl'>${regularPrice - discount}</span>
+                <span className='line-through text-primary-500'>
                   ${regularPrice}
                 </span>
               </>
             ) : (
-              <span className='text-2xl'>${regularPrice}</span>
+              <span className='text-xl'>${regularPrice}</span>
             )}
             <span className=''>/ night</span>
           </p>
           {numNights ? (
             <>
-              <p className='bg-accent-800 px-3 py-2 text-2xl rounded-lg'>
+              <p className='bg-accent-800 px-2 py-1 text-xl rounded-lg'>
                 <span>&times;</span> <span>{numNights}</span>
               </p>
               <p>
-                <span className='text-lg font-bold uppercase'>Total</span>{' '}
-                <span className='text-2xl font-semibold'>${cabinPrice}</span>
+                <span className='font-bold uppercase'>Total</span>{' '}
+                <span className='text-xl font-semibold'>${cabinPrice}</span>
               </p>
             </>
           ) : null}

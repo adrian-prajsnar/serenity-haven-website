@@ -18,10 +18,10 @@ export default function CabinsPage({ searchParams }: CabinsPageProps) {
 
   return (
     <div>
-      <h1 className='text-4xl mb-5 text-accent-700 font-medium'>
+      <h1 className='text-3xl mb-5 text-accent-700 font-semibold'>
         Our Elegant Retreats
       </h1>
-      <p className='text-primary-700 text-lg mb-10'>
+      <p className='text-primary-700 mb-10'>
         Discover the perfect blend of comfort and elegance in our cabins,
         situated in the breathtaking Tatry Mountains of Poland. Enjoy stunning
         mountain vistas, serene forest explorations, and relaxing evenings in

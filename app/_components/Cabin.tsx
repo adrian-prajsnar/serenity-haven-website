@@ -22,34 +22,34 @@ export default function Cabin({ cabin }: CabinProps) {
       </div>
 
       <div>
-        <div className='mb-5 translate-x-[-254px] bg-primary-50 opacity-90 p-6 pb-[1.125rem] w-[150%] rounded-l-lg'>
-          <h3 className='text-accent-100 font-bold text-7xl [text-shadow:2px_2px_2px_var(--tw-shadow-color)] shadow-accent-900'>
+        <div className='mb-5 translate-x-[-254px] bg-primary-50 p-6 w-[150%] rounded-l-lg'>
+          <h3 className='text-accent-50 font-semibold text-6xl [text-shadow:3px_3px_3px_var(--tw-shadow-color)] shadow-accent-950'>
             Cabin {name}
           </h3>
         </div>
 
-        <p className='text-lg text-primary-700 mb-10'>
+        <p className='text-primary-700 mb-10'>
           <TextExpander>{description}</TextExpander>
         </p>
 
         <ul className='flex flex-col gap-4 mb-7'>
           <li className='flex gap-3 items-center'>
             <UsersIcon className='h-5 w-5 text-primary-500' />
-            <span className='text-lg'>
+            <span>
               Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
               guests
             </span>
           </li>
           <li className='flex gap-3 items-center'>
             <MapPinIcon className='h-5 w-5 text-primary-500' />
-            <span className='text-lg'>
+            <span>
               Situated in the heart of the{' '}
               <span className='font-semibold'>Tatry Mountains</span> (Poland)
             </span>
           </li>
           <li className='flex gap-3 items-center'>
             <EyeSlashIcon className='h-5 w-5 text-primary-500' />
-            <span className='text-lg'>
+            <span>
               Absolute <span className='font-semibold'>privacy</span> guaranteed
             </span>
           </li>

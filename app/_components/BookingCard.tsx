@@ -29,7 +29,7 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
 
       <div className='flex-grow px-6 py-3 flex flex-col'>
         <div className='flex items-center justify-between'>
-          <h3 className='text-xl font-semibold'>
+          <h3 className='text-lg font-semibold'>
             {booking.numNights} nights in Cabin {booking.cabins?.name}
           </h3>
           {isPast(new Date(booking.startDate)) ? (
@@ -43,7 +43,7 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
           )}
         </div>
 
-        <p className='text-lg text-primary-600'>
+        <p className='text-primary-600 font-medium'>
           {format(new Date(booking.startDate), 'EEE, MMM dd yyyy')} (
           {isToday(new Date(booking.startDate))
             ? 'Today'
@@ -52,14 +52,14 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
         </p>
 
         <div className='flex gap-5 mt-auto items-baseline'>
-          <p className='text-xl font-semibold text-accent-700'>
+          <p className='text-lg font-semibold text-accent-700'>
             ${booking.totalPrice}
           </p>
           <p className='text-primary-600'>&bull;</p>
-          <p className='text-lg text-primary-600'>
+          <p className='text-primary-600 font-medium'>
             {booking.numGuests} guest{booking.numGuests > 1 && 's'}
           </p>
-          <p className='ml-auto text-sm text-primary-500'>
+          <p className='ml-auto text-sm font-medium text-primary-500'>
             Booked {format(new Date(booking.created_at), 'EEE, MMM dd yyyy, p')}
           </p>
         </div>

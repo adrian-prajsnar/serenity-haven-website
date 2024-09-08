@@ -18,17 +18,17 @@ export default function HomePage() {
         <span className='-mb-8 font-bold lowercase text-primary-300'>
           discover
         </span>
-        <h1 className='text-8xl font-semibold'>Your perfect escape.</h1>
+        <h1 className='text-8xl font-bold'>Your perfect escape.</h1>
         <div className='flex items-center justify-center gap-4'>
           <Link
             href='/cabins'
-            className='bg-accent-700 px-8 py-6 font-semibold rounded-full hover:bg-accent-800 transition-all'
+            className='bg-accent-700 px-8 py-5 font-semibold rounded-full hover:bg-accent-800 transition-all'
           >
             Explore our luxury cabins
           </Link>
           <Link
             href='/about'
-            className='bg-primary-950 text-primary-300 px-8 py-6 font-semibold rounded-full hover:bg-primary-900 transition-all'
+            className='bg-primary-950 text-primary-300 px-8 py-5 font-semibold rounded-full hover:bg-primary-900 transition-all'
           >
             Read more about us
           </Link>

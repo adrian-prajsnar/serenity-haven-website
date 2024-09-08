@@ -16,7 +16,7 @@ export default function Filter() {
   };
 
   return (
-    <div className='border border-primary-400 flex rounded-lg'>
+    <div className='border border-primary-400 flex text-sm font-medium rounded-lg'>
       <FilterButton
         filter='all'
         handleFilter={handleFilter}

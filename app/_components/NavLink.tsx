@@ -18,23 +18,24 @@ export default function NavLink({ link, session }: NavLinkProps) {
 
   return (
     <li>
-      <Link
-        href={link.href}
-        className={`${
-          pathname === '/' ? 'text-primary-50' : 'text-primary-700'
-        } font-medium border-b-2 border-transparent flex items-center gap-4 transition-colors hover:border-primary-400 ${
-          pathname.startsWith(link.href) ? 'border-b-primary-400' : ''
-        }`}
-      >
+      <Link href={link.href} className='flex items-center gap-3'>
         {link.href === '/account' && session?.user && (
           <img
-            className='h-8 rounded-full'
+            className='h-7 rounded-full'
             src={session?.user?.image || ''}
             alt={`${session?.user?.name}'s avatar` || ''}
             referrerPolicy='no-referrer'
           />
         )}
-        <span>{link.name}</span>
+        <span
+          className={`${
+            pathname === '/' ? 'text-primary-50' : 'text-primary-700'
+          } border-b-2 border-transparent transition-colors hover:border-primary-400 ${
+            pathname.startsWith(link.href) ? 'border-b-primary-400' : ''
+          }`}
+        >
+          {link.name}
+        </span>
       </Link>
     </li>
   );
