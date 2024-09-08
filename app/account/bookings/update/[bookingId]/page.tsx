@@ -24,18 +24,20 @@ export default async function UpdateBookingPage({
 
   return (
     <div>
-      <h2 className='font-semibold text-2xl text-accent-700 mb-7'>
+      <h2 className='font-semibold text-xl text-accent-700 mb-7'>
         Update booking #{bookingId}
       </h2>
 
       <form
         action={updateBooking}
-        className='bg-primary-100 py-8 px-12 text-lg flex gap-6 flex-col rounded-lg'
+        className='bg-primary-100 py-8 px-12 flex gap-6 flex-col rounded-lg'
       >
         <input type='hidden' name='bookingId' value={bookingId} />
 
         <div className='space-y-2'>
-          <label htmlFor='numGuests'>How many guests?</label>
+          <label htmlFor='numGuests' className='font-medium'>
+            How many people will be staying?
+          </label>
           <select
             name='numGuests'
             id='numGuests'
@@ -44,7 +46,7 @@ export default async function UpdateBookingPage({
             required
           >
             <option value='' key=''>
-              Select number of guests...
+              Choose number of guests...
             </option>
             {Array.from({ length: maxCapacity }, (_, i) => i + 1).map(x => (
               <option value={x} key={x}>
@@ -55,14 +57,15 @@ export default async function UpdateBookingPage({
         </div>
 
         <div className='space-y-2'>
-          <label htmlFor='observations'>
-            Anything we should know about your stay?
+          <label htmlFor='observations' className='font-medium'>
+            Is there anything we should be aware of regarding your stay?
           </label>
           <textarea
             name='observations'
             id='observations'
             defaultValue={observations ?? ''}
             className='px-5 py-3 w-full border border-primary-300 rounded-md'
+            placeholder='Do you have any pets, allergies, or special requests we should know about?'
           />
         </div>
 

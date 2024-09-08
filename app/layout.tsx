@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { NextFont } from 'next/dist/compiled/@next/font';
-import { Josefin_Sans } from 'next/font/google';
+import { Raleway } from 'next/font/google';
 import { BookingProvider } from './_contexts/BookingContext';
 import '@/app/_styles/globals.css';
 import Header from './_components/Header';
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'Luxury hut hotel in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests.',
 };
 
-const josefin: NextFont = Josefin_Sans({
+const raleway: NextFont = Raleway({
   subsets: ['latin'],
   display: 'swap',
 });
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       <body
-        className={`${josefin.className} antialiased bg-primary-0 text-primary-700 min-h-screen flex flex-col relative`}
+        className={`${raleway.className} antialiased bg-primary-0 text-primary-700 min-h-screen flex flex-col relative`}
       >
         <Header />
         <div className='flex-1 px-8 py-12 grid'>

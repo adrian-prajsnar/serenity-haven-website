@@ -22,33 +22,35 @@ export default function Cabin({ cabin }: CabinProps) {
       </div>
 
       <div>
-        <h3 className='text-accent-700 font-semibold text-7xl mb-5 translate-x-[-254px] bg-primary-50 opacity-90 p-6 pb-1 w-[150%] rounded-l-lg'>
-          Cabin {name}
-        </h3>
+        <div className='mb-5 translate-x-[-254px] bg-primary-50 p-6 w-[150%] rounded-l-lg'>
+          <h3 className='text-accent-50 font-semibold text-6xl [text-shadow:3px_3px_3px_var(--tw-shadow-color)] shadow-accent-950'>
+            Cabin {name}
+          </h3>
+        </div>
 
-        <p className='text-lg text-primary-700 mb-10'>
+        <p className='text-primary-700 mb-10'>
           <TextExpander>{description}</TextExpander>
         </p>
 
         <ul className='flex flex-col gap-4 mb-7'>
           <li className='flex gap-3 items-center'>
             <UsersIcon className='h-5 w-5 text-primary-500' />
-            <span className='text-lg'>
-              For up to <span className='font-semibold'>{maxCapacity}</span>{' '}
+            <span>
+              Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
               guests
             </span>
           </li>
           <li className='flex gap-3 items-center'>
             <MapPinIcon className='h-5 w-5 text-primary-500' />
-            <span className='text-lg'>
-              Located in the heart of the{' '}
-              <span className='font-semibold'>Dolomites</span> (Italy)
+            <span>
+              Situated in the heart of the{' '}
+              <span className='font-semibold'>Tatry Mountains</span> (Poland)
             </span>
           </li>
           <li className='flex gap-3 items-center'>
             <EyeSlashIcon className='h-5 w-5 text-primary-500' />
-            <span className='text-lg'>
-              Privacy <span className='font-semibold'>100%</span> guaranteed
+            <span>
+              Absolute <span className='font-semibold'>privacy</span> guaranteed
             </span>
           </li>
         </ul>

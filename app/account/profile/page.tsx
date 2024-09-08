@@ -17,13 +17,13 @@ export default async function ProfilePage() {
 
   return (
     <div>
-      <h2 className='font-semibold text-2xl text-accent-700 mb-4'>
+      <h2 className='font-semibold text-xl text-accent-700 mb-4'>
         Update your guest profile
       </h2>
 
-      <p className='text-lg mb-8 text-primary-600'>
-        Providing the following information will make your check-in process
-        faster and smoother. See you soon!
+      <p className='mb-8'>
+        Filling out the following information will help speed up and simplify
+        your check-in. We can’t wait to see you soon!
       </p>
 
       <UpdateProfileForm guest={guest}>

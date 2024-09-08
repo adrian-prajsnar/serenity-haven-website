@@ -36,13 +36,13 @@ export default function BookingForm({ cabin, user }: BookingFormProps) {
 
   return (
     <div>
-      <div className='bg-primary-200 text-primary-800 px-16 py-2 flex justify-between items-center rounded-tr-lg'>
-        <p>Logged in as</p>
+      <div className='bg-primary-200 text-primary-800 px-16 py-2 flex justify-between items-center text-sm font-semibold rounded-tr-lg'>
+        <p>Signed in as</p>
 
-        <div className='flex gap-4 items-center'>
+        <div className='flex gap-2 items-center'>
           <img
             referrerPolicy='no-referrer'
-            className='h-8 rounded-full'
+            className='h-7 rounded-full'
             src={user.image ?? ''}
             alt={user.name ?? ''}
           />
@@ -55,10 +55,12 @@ export default function BookingForm({ cabin, user }: BookingFormProps) {
           await createBookingWithData(formData);
           resetRange();
         }}
-        className='bg-primary-100 py-10 px-16 text-lg flex gap-5 flex-col rounded-br-lg'
+        className='bg-primary-100 py-10 px-16 text-base flex gap-5 flex-col rounded-br-lg'
       >
         <div className='space-y-2'>
-          <label htmlFor='numGuests'>How many guests?</label>
+          <label htmlFor='numGuests' className='font-medium'>
+            How many people will be staying?
+          </label>
           <select
             name='numGuests'
             id='numGuests'
@@ -77,21 +79,21 @@ export default function BookingForm({ cabin, user }: BookingFormProps) {
         </div>
 
         <div className='space-y-2'>
-          <label htmlFor='observations'>
-            Anything we should know about your stay?
+          <label htmlFor='observations' className='font-medium'>
+            Is there anything we should be aware of regarding your stay?
           </label>
           <textarea
             name='observations'
             id='observations'
             className='px-5 py-3 w-full border border-primary-300 rounded-md'
-            placeholder='Any pets, allergies, special requirements, etc.?'
+            placeholder='Do you have any pets, allergies, or special requests we should know about?'
           />
         </div>
 
         <div className='flex justify-end items-center gap-6'>
           {!(startDate && endDate) ? (
-            <p className='text-primary-600 text-base'>
-              Start by selecting dates
+            <p className='text-primary-500 text-sm font-medium'>
+              Begin by choosing dates of your stay.
             </p>
           ) : (
             <ButtonSubmitForm content='Book now' loadingContent='Booking...' />

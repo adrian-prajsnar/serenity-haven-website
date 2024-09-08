@@ -19,14 +19,14 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
 
       <div className='flex-grow'>
         <div className='pt-5 pb-4 px-7'>
-          <h3 className='text-accent-700 font-semibold text-2xl mb-3'>
+          <h3 className='text-accent-700 font-semibold text-xl mb-3'>
             Cabin {name}
           </h3>
 
           <div className='flex gap-3 items-center mb-2'>
             <UsersIcon className='h-5 w-5 text-primary-500' />
-            <p className='text-lg'>
-              For up to <span className='font-semibold'>{maxCapacity}</span>{' '}
+            <p>
+              Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
               guests
             </p>
           </div>
@@ -34,15 +34,17 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
           <p className='flex gap-3 justify-end items-baseline'>
             {discount && discount > 0 ? (
               <>
-                <span className='text-3xl font-[350]'>
+                <span className='text-xl text-accent-700 font-medium'>
                   ${regularPrice && regularPrice - discount}
                 </span>
-                <span className='line-through font-semibold text-primary-400'>
+                <span className='line-through text-primary-400'>
                   ${regularPrice}
                 </span>
               </>
             ) : (
-              <span className='text-3xl font-[350]'>${regularPrice}</span>
+              <span className='text-xl text-accent-700 font-medium'>
+                ${regularPrice}
+              </span>
             )}
             <span className='text-primary-600'>/ night</span>
           </p>

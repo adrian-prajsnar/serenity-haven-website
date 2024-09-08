@@ -16,10 +16,10 @@ export default function UpdateGuestProfileForm({
   return (
     <form
       action={updateGuestProfile}
-      className='bg-primary-100 py-8 px-12 text-lg flex gap-6 flex-col rounded-lg'
+      className='bg-primary-100 py-8 px-12 flex gap-6 flex-col rounded-lg'
     >
       <div className='space-y-2'>
-        <label>Full name</label>
+        <label className='font-medium'>Full name</label>
         <input
           disabled
           defaultValue={guest?.fullName}
@@ -28,7 +28,7 @@ export default function UpdateGuestProfileForm({
       </div>
 
       <div className='space-y-2'>
-        <label>Email address</label>
+        <label className='font-medium'>Email address</label>
         <input
           disabled
           defaultValue={guest?.email}
@@ -38,7 +38,9 @@ export default function UpdateGuestProfileForm({
 
       <div className='space-y-2'>
         <div className='flex items-center justify-between'>
-          <label htmlFor='nationality'>Where are you from?</label>
+          <label htmlFor='nationality' className='font-medium'>
+            Where are you from?
+          </label>
           {guest?.countryFlag && (
             <img
               src={guest?.countryFlag as string}
@@ -52,7 +54,9 @@ export default function UpdateGuestProfileForm({
       </div>
 
       <div className='space-y-2'>
-        <label htmlFor='nationalID'>National ID number</label>
+        <label htmlFor='nationalID' className='font-medium'>
+          National ID number
+        </label>
         <input
           name='nationalID'
           defaultValue={guest?.nationalID ?? ''}

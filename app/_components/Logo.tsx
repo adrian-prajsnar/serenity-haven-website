@@ -20,7 +20,7 @@ export default function Logo() {
       <span
         className={`${
           pathname === '/' ? 'text-primary-50' : 'text-primary-700'
-        } text-xl font-semibold`}
+        } font-semibold`}
       >
         Serenity Haven
       </span>

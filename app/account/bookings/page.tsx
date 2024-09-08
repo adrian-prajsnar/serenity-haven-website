@@ -17,14 +17,17 @@ export default async function BookingsPage() {
 
   return (
     <div>
-      <h2 className='font-semibold text-2xl text-accent-700 mb-7'>
+      <h2 className='font-semibold text-xl text-accent-700 mb-7'>
         Your bookings
       </h2>
 
       {bookings.length === 0 ? (
-        <p className='text-lg'>
-          You have no bookings yet. Check out our{' '}
-          <Link className='underline text-accent-700' href='/cabins'>
+        <p>
+          You don’t have any bookings at the moment. Explore our{' '}
+          <Link
+            className='underline underline-offset-8 font-medium text-accent-700'
+            href='/cabins'
+          >
             luxury cabins &rarr;
           </Link>
         </p>
