@@ -65,9 +65,9 @@ export default async function AboutPage() {
       </div>
 
       <div className='col-span-3'>
-        <h1 className='text-3xl mb-10 text-accent-700 font-semibold'>
+        <h2 className='text-3xl mb-10 text-accent-700 font-semibold'>
           Managed by a group of friends since 2023
-        </h1>
+        </h2>
 
         <div className='space-y-8'>
           <p>

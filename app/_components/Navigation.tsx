@@ -11,6 +11,10 @@ const navLinks: { name: string; href: string }[] = [
     href: '/about',
   },
   {
+    name: 'Contact',
+    href: '/contact',
+  },
+  {
     name: 'Guest area',
     href: '/account',
   },
