@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function LoginMessage() {
   return (
-    <div className='grid bg-primary-100 '>
+    <div className='grid bg-primary-100 rounded-lg'>
       <p className='text-center font-medium py-12 px-8 self-center'>
         <Link
           href='/login'
