@@ -29,7 +29,7 @@ export default function DeleteBooking({
     >
       {!isPending ? (
         <>
-          <FaTrash className='h-5 w-5 text-primary-500 group-hover:text-primary-200 transition-colors' />
+          <FaTrash className='h-4 w-4 text-primary-500 group-hover:text-primary-200 transition-colors' />
           <span className='mt-1'>Delete</span>
         </>
       ) : (

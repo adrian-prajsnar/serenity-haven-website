@@ -72,7 +72,7 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
               href={`/account/bookings/update/${booking.id}`}
               className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-600 border-b border-primary-400 flex-grow px-3 rounded-tr-lg hover:bg-accent-700 transition-colors hover:text-primary-50'
             >
-              <FaPencilAlt className='h-5 w-5 text-primary-500 group-hover:text-primary-200 transition-colors' />
+              <FaPencilAlt className='h-4 w-4 text-primary-500 group-hover:text-primary-200 transition-colors' />
               <span className='mt-1'>Update</span>
             </Link>
             <DeleteBooking bookingId={booking.id} onDelete={onDelete} />
