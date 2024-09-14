@@ -63,7 +63,10 @@ export default function ContactForm() {
           time by clicking the &quot;unsubscribe&quot; link provided in each
           message. Your privacy is important to us, and your data will be
           handled in accordance with our{' '}
-          <Link href='' className='underline underline-offset-4'>
+          <Link
+            href=''
+            className='font-bold border-b border-primary-400 hover:border-b-accent-700 transition-colors'
+          >
             Privacy Policy
           </Link>
           .

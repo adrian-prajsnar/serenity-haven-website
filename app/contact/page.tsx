@@ -1,15 +1,13 @@
-// https://michellepaisgroup.com/
-
-import { Metadata } from 'next';
-import ContactForm from '../_components/ContactForm';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { HiMail, HiPhone } from 'react-icons/hi';
 import {
   FaFacebook,
   FaInstagram,
   FaTripadvisor,
   FaYoutube,
 } from 'react-icons/fa';
-import { HiMail, HiPhone } from 'react-icons/hi';
+import ContactForm from '../_components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -21,6 +19,7 @@ export default function ContactPage() {
       <h1 className='text-3xl mb-5 text-accent-700 font-semibold'>
         Contact us
       </h1>
+
       <p className='mb-20'>
         We’re here to help make your experience at Serenity Haven as seamless
         and enjoyable as possible. Whether you have questions about your stay,
@@ -36,6 +35,7 @@ export default function ContactPage() {
           <h2 className='font-semibold text-xl text-accent-700 text-center mb-7'>
             Online inquiry
           </h2>
+
           <ContactForm />
         </section>
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
               Sunday, to assist you with your inquiries and bookings. For urgent
               matters, you can reach our 24/7 on-site support at{' '}
               <Link
-                href='mailto:+48987654321'
+                href='tel:+48987654321'
                 className='font-medium border-b border-b-primary-400 hover:border-b-accent-700 transition-colors'
               >
                 +48 987 654 321
@@ -95,44 +95,44 @@ export default function ContactPage() {
 
             <ul className='flex flex-col gap-4'>
               <li>
-                For quick answers to common questions, visit our{' '}
+                Visit our{' '}
                 <Link
                   className='text-accent-700 font-semibold border-b border-accent-300 hover:border-accent-700 transition-colors'
-                  href='/faq'
+                  href=''
                 >
                   FAQ page
-                </Link>
-                .
+                </Link>{' '}
+                for quick answers.
               </li>
               <li>
-                Stay updated on our latest offers and news by subscribing to our{' '}
+                Subscribe to our{' '}
                 <Link
                   className='text-accent-700 font-semibold border-b border-accent-300 hover:border-accent-700 transition-colors'
-                  href='/newsletter'
+                  href=''
                 >
                   newsletter
-                </Link>
-                .
+                </Link>{' '}
+                for updates and offers.
               </li>
               <li>
-                Explore our cabins and amenities with a{' '}
+                Take a{' '}
                 <Link
                   className='text-accent-700 font-semibold border-b border-accent-300 hover:border-accent-700 transition-colors'
-                  href='/virtual-tour'
+                  href=''
                 >
                   virtual tour
                 </Link>{' '}
                 of Serenity Haven.
               </li>
               <li>
-                Find directions to Serenity Haven and learn about nearby{' '}
+                Get{' '}
                 <Link
                   className='text-accent-700 font-semibold border-b border-accent-300 hover:border-accent-700 transition-colors'
-                  href='/transport'
+                  href=''
                 >
-                  transportation options
-                </Link>
-                .
+                  directions & transportation info
+                </Link>{' '}
+                to Serenity Haven.
               </li>
             </ul>
 
