@@ -1,6 +1,6 @@
 'use client';
 
-import { XMarkIcon } from '@heroicons/react/24/solid';
+import { FaTimes } from 'react-icons/fa';
 import { format } from 'date-fns';
 import { useBooking } from '../_contexts/BookingContext';
 
@@ -22,7 +22,7 @@ export default function BookingReminder() {
         </span>
       </p>
       <button className='rounded-full p-1 hover:bg-accent-800 transition-all'>
-        <XMarkIcon className='h-6 w-6' onClick={resetRange} />
+        <FaTimes className='h-6 w-6' onClick={resetRange} />
       </button>
     </div>
   );

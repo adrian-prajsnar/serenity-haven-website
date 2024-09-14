@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
+import { FaMapMarkerAlt, FaRegEyeSlash, FaUsers } from 'react-icons/fa';
 import { Tables } from '../_types/database.types';
 import TextExpander from './TextExpander';
 
@@ -34,21 +34,21 @@ export default function Cabin({ cabin }: CabinProps) {
 
         <ul className='flex flex-col gap-4 mb-7'>
           <li className='flex gap-3 items-center'>
-            <UsersIcon className='h-5 w-5 text-primary-500' />
+            <FaUsers className='h-5 w-5 text-primary-500' />
             <span>
               Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
               guests
             </span>
           </li>
           <li className='flex gap-3 items-center'>
-            <MapPinIcon className='h-5 w-5 text-primary-500' />
+            <FaMapMarkerAlt className='h-5 w-5 text-primary-500' />
             <span>
               Situated in the heart of the{' '}
               <span className='font-semibold'>Tatry Mountains</span> (Poland)
             </span>
           </li>
           <li className='flex gap-3 items-center'>
-            <EyeSlashIcon className='h-5 w-5 text-primary-500' />
+            <FaRegEyeSlash className='h-5 w-5 text-primary-500' />
             <span>
               Absolute <span className='font-semibold'>privacy</span> guaranteed
             </span>

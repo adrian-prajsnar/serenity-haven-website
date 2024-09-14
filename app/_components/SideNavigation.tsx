@@ -2,28 +2,24 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  CalendarDaysIcon,
-  HomeIcon,
-  UserIcon,
-} from '@heroicons/react/24/solid';
+import { FaHome, FaRegCalendarAlt, FaUser } from 'react-icons/fa';
 import SignOutButton from '@/app/_components/SignOutButton';
 
 const navLinks: { name: string; href: string; icon: JSX.Element }[] = [
   {
     name: 'Home',
     href: '/account',
-    icon: <HomeIcon className='h-5 w-5 text-primary-500' />,
+    icon: <FaHome className='h-5 w-5 text-primary-500' />,
   },
   {
     name: 'Bookings',
     href: '/account/bookings',
-    icon: <CalendarDaysIcon className='h-5 w-5 text-primary-500' />,
+    icon: <FaRegCalendarAlt className='h-5 w-5 text-primary-500' />,
   },
   {
     name: 'Guest profile',
     href: '/account/profile',
-    icon: <UserIcon className='h-5 w-5 text-primary-500' />,
+    icon: <FaUser className='h-5 w-5 text-primary-500' />,
   },
 ];
 
