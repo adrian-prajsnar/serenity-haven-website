@@ -11,6 +11,10 @@ const navLinks: { name: string; href: string }[] = [
     href: '/about',
   },
   {
+    name: 'Contact',
+    href: '/contact',
+  },
+  {
     name: 'Guest area',
     href: '/account',
   },
@@ -21,7 +25,7 @@ export default async function Navigation() {
 
   return (
     <nav className='z-10'>
-      <ul className='flex gap-16 items-center'>
+      <ul className='flex gap-12 items-center'>
         {navLinks.map(link => (
           <NavLink key={link.href} link={link} session={session} />
         ))}

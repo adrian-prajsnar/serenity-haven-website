@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { UsersIcon } from '@heroicons/react/24/solid';
 import { Tables } from '../_types/database.types';
+import { FaUsers } from 'react-icons/fa';
 
 export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
@@ -24,7 +24,7 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
           </h3>
 
           <div className='flex gap-3 items-center mb-2'>
-            <UsersIcon className='h-5 w-5 text-primary-500' />
+            <FaUsers className='h-5 w-5 text-primary-500' />
             <p>
               Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
               guests

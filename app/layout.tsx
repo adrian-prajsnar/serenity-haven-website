@@ -8,8 +8,8 @@ import Header from './_components/Header';
 
 export const metadata: Metadata = {
   title: {
-    template: 'Serenity Haven # %s',
-    default: 'Serenity Haven',
+    template: 'Serenity Haven | %s',
+    default: 'Serenity Haven | Your perfect Escape',
   },
   description:
     'Luxury hut hotel in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests.',

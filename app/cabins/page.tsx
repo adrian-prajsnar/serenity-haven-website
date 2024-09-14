@@ -21,12 +21,14 @@ export default function CabinsPage({ searchParams }: CabinsPageProps) {
       <h1 className='text-3xl mb-5 text-accent-700 font-semibold'>
         Our Elegant Retreats
       </h1>
-      <p className='text-primary-700 mb-10'>
-        Discover the perfect blend of comfort and elegance in our cabins,
-        situated in the breathtaking Tatry Mountains of Poland. Enjoy stunning
-        mountain vistas, serene forest explorations, and relaxing evenings in
-        your private hot tub under the stars. Your personal retreat awaits for a
-        tranquil and memorable escape.
+      <p className='mb-10'>
+        Discover the perfect blend of comfort, elegance, and modern luxury in
+        our carefully crafted cabins, nestled in the breathtaking Tatry
+        Mountains of Poland. Immerse yourself in the stunning mountain vistas,
+        embark on serene explorations through the peaceful forests, and unwind
+        with relaxing evenings in your private hot tub under the vast, starlit
+        sky. Your personal retreat awaits, offering the ideal setting for a
+        tranquil, rejuvenating, and unforgettable escape from the everyday.
       </p>
 
       <div className='flex justify-end mb-8'>

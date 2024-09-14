@@ -29,9 +29,11 @@ export default function NavLink({ link, session }: NavLinkProps) {
         )}
         <span
           className={`${
-            pathname === '/' ? 'text-primary-50' : 'text-primary-700'
-          } border-b-2 border-transparent transition-colors hover:border-primary-400 ${
-            pathname.startsWith(link.href) ? 'border-b-primary-400' : ''
+            pathname === '/'
+              ? 'text-primary-50 hover:border-primary-50'
+              : 'text-primary-700 hover:border-primary-700'
+          } border-b-2 border-transparent transition-colors ${
+            pathname.startsWith(link.href) && 'border-b-primary-400'
           }`}
         >
           {link.name}
