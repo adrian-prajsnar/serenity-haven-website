@@ -43,7 +43,7 @@ export default function ContactForm() {
         </label>
         <textarea
           name='message'
-          className='px-5 py-3 w-full h-40 border border-primary-300 rounded-md'
+          className='resize-none px-5 py-3 w-full h-40 border border-primary-300 rounded-md'
         />
       </div>
 
