@@ -19,7 +19,7 @@ export default function BookingList({ bookings }: BookingListProps) {
     }
   );
 
-  const handleDelete = async (bookingId: GuestBooking['id']) => {
+  const handleOptimisticDelete = async (bookingId: GuestBooking['id']) => {
     optimisticDelete(bookingId);
     await deleteBooking(bookingId);
   };
@@ -29,7 +29,7 @@ export default function BookingList({ bookings }: BookingListProps) {
       {optimisticBookings.map(booking => (
         <BookingCard
           booking={booking}
-          onDelete={handleDelete}
+          onOptimisticDelete={handleOptimisticDelete}
           key={booking.id}
         />
       ))}
