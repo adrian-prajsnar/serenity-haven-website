@@ -16,7 +16,7 @@ export default async function BookingsPage() {
   );
 
   return (
-    <div>
+    <>
       <h2 className='font-semibold text-xl text-accent-700 mb-7'>
         Your bookings
       </h2>
@@ -34,6 +34,6 @@ export default async function BookingsPage() {
       ) : (
         <BookingList bookings={bookings} />
       )}
-    </div>
+    </>
   );
 }

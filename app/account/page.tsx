@@ -27,50 +27,84 @@ export default async function AccountPage() {
       .at(0) ?? null;
 
   return (
-    <div>
+    <>
       <h2 className='font-semibold text-xl text-accent-700 mb-7'>
         Welcome, {firstName}
       </h2>
 
-      <div className='flex flex-col gap-16'>
-        {upcomingBooking ? (
-          <section>
-            <h3 className='text-lg'>Upcoming stay</h3>
-            <BookingCard booking={upcomingBooking} />
-          </section>
-        ) : (
-          <p>
-            You don&apos;t have upcoming stays.{' '}
-            <Link href='/cabins'>Book one</Link>
-          </p>
-        )}
+      <div className='flex flex-col flex-grow gap-16'>
+        <section className='flex flex-col gap-12'>
+          <div className='flex flex-col gap-2'>
+            <h3 className='text-lg font-semibold'>Upcoming stay</h3>
 
-        {lastBooking ? (
-          <section>
-            <h3 className='text-lg'>Last stay</h3>
-            <BookingCard booking={lastBooking} />
-          </section>
-        ) : (
-          <p>You don&apos;t have previous stays with us.</p>
-        )}
+            {upcomingBooking ? (
+              <BookingCard booking={upcomingBooking} />
+            ) : (
+              <p>
+                You don&apos;t have upcoming stays.{' '}
+                <Link href='/cabins'>Book one</Link>
+              </p>
+            )}
+          </div>
 
-        <section>
-          <ul>
+          <div className='flex flex-col gap-2'>
+            <h3 className='text-lg font-semibold'>
+              {lastBooking ? 'Last stay' : 'Welcome to Your First Stay!'}
+            </h3>
+
+            {lastBooking ? (
+              <BookingCard booking={lastBooking} />
+            ) : (
+              <p>
+                It looks like this is your first visit with us! We hope you
+                enjoy your time at our resort. We’d love to hear your thoughts,
+                so please consider leaving a review when your stay is complete.
+              </p>
+            )}
+          </div>
+        </section>
+
+        <section className='mt-auto'>
+          <ul className='flex items-center justify-center gap-16 text-lg'>
             <li>
-              <Link href='/account/bookings'>Manage your bookings</Link>
+              <Link
+                href='/account/bookings'
+                role='button'
+                className='text-accent-700 font-medium border-b border-accent-300 hover:border-accent-700 transition-colors'
+              >
+                Manage your bookings
+              </Link>
             </li>
             <li>
-              <Link href='/account/profile'>Update your profile</Link>
+              <Link
+                href='/account/profile'
+                role='button'
+                className='text-accent-700 font-medium border-b border-accent-300 hover:border-accent-700 transition-colors'
+              >
+                Update your profile
+              </Link>
             </li>
             <li>
-              <Link href='/contact'>Contact support</Link>
+              <Link
+                href='/contact'
+                role='button'
+                className='text-accent-700 font-medium border-b border-accent-300 hover:border-accent-700 transition-colors'
+              >
+                Contact support
+              </Link>
             </li>
             <li>
-              <Link href=''>Check FAQ</Link>
+              <Link
+                href=''
+                role='button'
+                className='text-accent-700 font-medium border-b border-accent-300 hover:border-accent-700 transition-colors'
+              >
+                Check FAQ
+              </Link>
             </li>
           </ul>
         </section>
       </div>
-    </div>
+    </>
   );
 }

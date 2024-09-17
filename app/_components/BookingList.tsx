@@ -25,7 +25,7 @@ export default function BookingList({ bookings }: BookingListProps) {
   };
 
   return (
-    <ul className='space-y-6'>
+    <ul className='space-y-6 overflow-x-auto'>
       {optimisticBookings.map(booking => (
         <BookingCard
           booking={booking}

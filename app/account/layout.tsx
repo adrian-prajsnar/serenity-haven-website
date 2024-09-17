@@ -7,9 +7,9 @@ type AccountLayoutProps = {
 
 export default function AccountLayout({ children }: AccountLayoutProps) {
   return (
-    <div className='grid grid-cols-[16rem_1fr] h-full gap-12'>
+    <div className='grid grid-cols-[16rem_1fr] h-[78.6vh] gap-12'>
       <SideNavigation />
-      <div className='py-1'>{children}</div>
+      <div className='py-1 flex flex-col h-[78.6vh]'>{children}</div>
     </div>
   );
 }
