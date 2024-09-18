@@ -5,6 +5,7 @@ import { Raleway } from 'next/font/google';
 import { BookingProvider } from './_contexts/BookingContext';
 import '@/app/_styles/globals.css';
 import Header from './_components/Header';
+import Navigation from './_components/Navigation';
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +31,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={`${raleway.className} antialiased bg-primary-0 text-primary-700 min-h-screen flex flex-col relative`}
       >
-        <Header />
+        <Header>
+          <Navigation />
+        </Header>
         <div className='flex-1 px-8 py-12 grid'>
           <main className='max-w-7xl mx-auto w-full'>
             <BookingProvider>{children}</BookingProvider>

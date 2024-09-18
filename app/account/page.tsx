@@ -104,13 +104,13 @@ export default async function AccountPage() {
         </section>
       </div>
 
-      <footer className='mt-auto pt-7 uppercase'>
-        <ul className='flex items-center justify-center gap-16 text-base'>
+      <footer className='mt-auto pt-7 text-sm font-semibold uppercase'>
+        <ul className='flex items-center justify-center gap-16'>
           <li>
             <Link
               href='/account/bookings'
               role='button'
-              className='block text-accent-700 font-medium border-b-2 border-transparent hover:border-accent-700 transition-colors'
+              className='block text-accent-700 border-b-2 border-transparent hover:border-accent-700 transition-colors'
             >
               Manage your bookings
             </Link>
@@ -119,7 +119,7 @@ export default async function AccountPage() {
             <Link
               href='/account/profile'
               role='button'
-              className='block text-accent-700 font-medium border-b-2 border-transparent hover:border-accent-700 transition-colors'
+              className='block text-accent-700 border-b-2 border-transparent hover:border-accent-700 transition-colors'
             >
               Update your profile
             </Link>
@@ -128,7 +128,7 @@ export default async function AccountPage() {
             <Link
               href='/contact'
               role='button'
-              className='block text-accent-700 font-medium border-b-2 border-transparent hover:border-accent-700 transition-colors'
+              className='block text-accent-700 border-b-2 border-transparent hover:border-accent-700 transition-colors'
             >
               Contact support
             </Link>
@@ -137,7 +137,7 @@ export default async function AccountPage() {
             <Link
               href=''
               role='button'
-              className='block text-accent-700 font-medium border-b-2 border-transparent hover:border-accent-700 transition-colors'
+              className='block text-accent-700 border-b-2 border-transparent hover:border-accent-700 transition-colors'
             >
               Check FAQ
             </Link>

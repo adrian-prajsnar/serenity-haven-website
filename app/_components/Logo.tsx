@@ -12,15 +12,15 @@ export default function Logo() {
     <Link href='/' className='flex items-center gap-4 z-10'>
       <Image
         src={logo}
-        height='60'
-        width='60'
+        height='50'
+        width='50'
         quality={100}
         alt='Serenity Haven logo'
       />
       <span
         className={`${
           pathname === '/' ? 'text-primary-50' : 'text-primary-700'
-        } font-semibold`}
+        }`}
       >
         Serenity Haven
       </span>

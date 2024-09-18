@@ -4,7 +4,7 @@ import bg from '@/public/bg.webp';
 
 export default function HomePage() {
   return (
-    <main className='mt-24 text-primary-50'>
+    <main className='mt-32 text-primary-50'>
       <Image
         src={bg}
         fill

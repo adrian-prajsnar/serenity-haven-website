@@ -28,11 +28,11 @@ export default function SideNavigation() {
 
   return (
     <nav className='border-r border-primary-300'>
-      <ul className='flex flex-col gap-2 h-full'>
+      <ul className='flex flex-col gap-2 h-full font-[550]'>
         {navLinks.map(link => (
           <li key={link.name}>
             <Link
-              className={`py-3 px-5 hover:bg-primary-200  transition-colors flex items-center gap-4 font-medium rounded-l-lg ${
+              className={`py-3 px-5 hover:bg-primary-200  transition-colors flex items-center gap-4 rounded-l-lg ${
                 pathname === link.href ? 'bg-primary-200' : ''
               }`}
               href={link.href}

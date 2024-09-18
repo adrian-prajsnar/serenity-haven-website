@@ -1,12 +1,44 @@
-import Navigation from '@/app/_components/Navigation';
+'use client';
+
+import { ReactNode, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Logo from '@/app/_components/Logo';
 
-export default function Header() {
+type HeaderProps = {
+  children: ReactNode;
+};
+
+export default function Header({ children }: HeaderProps) {
+  const pathname: string = usePathname();
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (pathname === '/') {
+      const handleScroll = () => {
+        if (window.scrollY > 0) setIsScrolled(true);
+        else setIsScrolled(false);
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [pathname]);
+
   return (
-    <header className='border-b border-primary-300 px-8 py-5 font-medium'>
+    <header
+      className={`sticky top-0 z-20 px-8 py-4 font-[550] transition-[backdrop-blur-md] ${
+        pathname === '/'
+          ? isScrolled
+            ? 'backdrop-blur-md'
+            : 'bg-transparent'
+          : 'bg-primary-50/95 border-b border-primary-300'
+      }`}
+    >
       <div className='flex justify-between items-center max-w-7xl mx-auto'>
         <Logo />
-        <Navigation />
+        {children}
       </div>
     </header>
   );
