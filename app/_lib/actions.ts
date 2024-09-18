@@ -84,7 +84,7 @@ export async function createBooking(
   }
 
   revalidatePath(`/cabins/${newBookingData.cabinId}`);
-  redirect('/cabins/acknowledgement');
+  redirect('/booking-confirmation');
 }
 
 export async function updateBooking(formData: FormData) {

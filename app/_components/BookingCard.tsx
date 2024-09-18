@@ -1,9 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaPencilAlt } from 'react-icons/fa';
 import { format, formatDistance, isPast, isToday, parseISO } from 'date-fns';
+import { deleteBooking } from '../_lib/actions';
 import { GuestBooking } from '../_types/GuestBooking';
 import DeleteBooking from '@/app/_components/DeleteBooking';
-import { FaPencilAlt } from 'react-icons/fa';
 
 export const formatDistanceFromNow = (dateStr: string) =>
   formatDistance(parseISO(dateStr), new Date(), {
@@ -12,10 +15,16 @@ export const formatDistanceFromNow = (dateStr: string) =>
 
 type BookingCardProps = {
   booking: GuestBooking;
-  onDelete: (bookingId: GuestBooking['id']) => Promise<void>;
+  onOptimisticDelete?: (bookingId: GuestBooking['id']) => Promise<void>;
 };
 
-export default function BookingCard({ booking, onDelete }: BookingCardProps) {
+export default function BookingCard({
+  booking,
+  onOptimisticDelete,
+}: BookingCardProps) {
+  const handleDelete = async (bookingId: GuestBooking['id']) =>
+    await deleteBooking(bookingId);
+
   return (
     <div className='flex border border-primary-400 rounded-lg'>
       <div className='relative h-32 aspect-square'>
@@ -75,7 +84,10 @@ export default function BookingCard({ booking, onDelete }: BookingCardProps) {
               <FaPencilAlt className='h-4 w-4 text-primary-500 group-hover:text-primary-200 transition-colors' />
               <span className='mt-1'>Update</span>
             </Link>
-            <DeleteBooking bookingId={booking.id} onDelete={onDelete} />
+            <DeleteBooking
+              bookingId={booking.id}
+              onDelete={onOptimisticDelete ?? handleDelete}
+            />
           </>
         )}
       </div>
