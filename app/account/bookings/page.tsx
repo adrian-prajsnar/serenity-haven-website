@@ -25,7 +25,7 @@ export default async function BookingsPage() {
         <p>
           You don’t have any bookings at the moment. Explore our{' '}
           <Link
-            className='underline underline-offset-8 font-medium text-accent-700'
+            className='inline-block text-accent-700 font-medium border-b border-accent-300 hover:border-accent-700 transition-colors'
             href='/cabins'
           >
             luxury cabins &rarr;
