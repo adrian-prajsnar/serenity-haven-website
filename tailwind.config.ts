@@ -39,5 +39,10 @@ const config: Config = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      ringWidth: ['focus-visible'],
+    },
+  },
 };
 export default config;

@@ -41,3 +41,7 @@
 .rdp-caption_label {
   font-weight: 600 !important;
 }
+
+:focus-visible {
+  @apply outline outline-4 outline-offset-2 outline-accent-700/50;
+}
