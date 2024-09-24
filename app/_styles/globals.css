@@ -30,6 +30,15 @@
   }
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.accent.700') theme('colors.primary.50');
+}
+
+:focus-visible {
+  @apply outline outline-4 outline-offset-2 outline-accent-700/50;
+}
+
 /* For data picker */
 .rdp {
   --rdp-cell-size: 32px !important;
@@ -40,8 +49,4 @@
 
 .rdp-caption_label {
   font-weight: 600 !important;
-}
-
-:focus-visible {
-  @apply outline outline-4 outline-offset-2 outline-accent-700/50;
 }
