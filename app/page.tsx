@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import bg from '@/public/bg.webp';
+import bg from '@/public/bg3.webp';
 
 export default function HomePage() {
   return (
@@ -10,7 +10,7 @@ export default function HomePage() {
         fill
         placeholder='blur'
         quality={100}
-        className='object-cover object-top'
+        className='object-cover'
         alt='Mountains and forests with two cabins'
       />
 
