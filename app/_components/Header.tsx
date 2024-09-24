@@ -28,12 +28,12 @@ export default function Header({ children }: HeaderProps) {
 
   return (
     <header
-      className={`sticky top-0 z-20 px-8 py-4 font-[550] transition-[backdrop-blur-md] ${
+      className={`sticky top-0 z-20 px-8 py-4 font-[550] transition-[backdrop-blur] ${
         pathname === '/'
           ? isScrolled
-            ? 'backdrop-blur-md'
+            ? 'backdrop-blur-[8px]'
             : 'bg-transparent'
-          : 'bg-primary-50/95 border-b border-primary-300'
+          : 'bg-primary-50/75 backdrop-blur-sm border-b border-primary-300'
       }`}
     >
       <div className='flex justify-between items-center max-w-7xl mx-auto'>
