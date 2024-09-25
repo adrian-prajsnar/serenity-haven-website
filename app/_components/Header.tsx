@@ -28,7 +28,7 @@ export default function Header({ children }: HeaderProps) {
 
   return (
     <header
-      className={`sticky top-0 z-20 px-8 py-4 font-[550] transition-[backdrop-blur] ${
+      className={`text-sm md:text-base sticky top-0 z-20 px-4 sm:px-8 py-4 font-[550] transition-[backdrop-blur] ${
         pathname === '/'
           ? isScrolled
             ? 'backdrop-blur-[8px]'
@@ -36,7 +36,7 @@ export default function Header({ children }: HeaderProps) {
           : 'bg-primary-50/75 backdrop-blur-sm border-b border-primary-300'
       }`}
     >
-      <div className='flex justify-between items-center max-w-7xl mx-auto'>
+      <div className='flex justify-between items-center gap-8 max-w-7xl mx-auto'>
         <Logo />
         {children}
       </div>
