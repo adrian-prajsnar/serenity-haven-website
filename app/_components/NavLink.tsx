@@ -18,12 +18,18 @@ export default function NavLink({ link, session }: NavLinkProps) {
     <li>
       <Link href={link.href} className='flex items-center gap-1.5 md:gap-3'>
         {link.href === '/account' && session?.user && (
-          <img
-            className='h-5 sm:h-6 md:h-7 rounded-full'
-            src={session?.user?.image || ''}
-            alt={`${session?.user?.name}'s avatar` || ''}
-            referrerPolicy='no-referrer'
-          />
+          <div
+            className={`pb-1 border-b-2 border-transparent sm:pb-0 sm:border-b-0 ${
+              pathname.startsWith('/account') && 'border-accent-700'
+            }`}
+          >
+            <img
+              className='h-5 sm:h-6 md:h-7 rounded-full'
+              src={session?.user?.image || ''}
+              alt={`${session?.user?.name}'s avatar` || ''}
+              referrerPolicy='no-referrer'
+            />
+          </div>
         )}
 
         <span
@@ -43,7 +49,9 @@ export default function NavLink({ link, session }: NavLinkProps) {
             pathname === '/' ? 'text-primary-50' : 'text-primary-700'
           } ${
             link.href === '/account' && session?.user && 'hidden'
-          } hover:text-accent-700 transition-colors sm:hidden`}
+          } pb-1 hover:text-accent-700 transition-colors sm:hidden border-b-2 border-transparent ${
+            pathname.startsWith(link.href) && 'border-accent-700'
+          }`}
         >
           {link.icon}
         </span>
