@@ -25,7 +25,7 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
           </h3>
 
           <div className='flex gap-3 items-center mb-2'>
-            <FaUsers className='h-5 w-5 text-primary-500' />
+            <FaUsers className='h-4 w-4 sm:h-5 sm:w-5 text-primary-500' />
             <p className='text-sm sm:text-base'>
               Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
               guests

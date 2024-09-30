@@ -32,7 +32,7 @@ export default async function CabinPage({ params }: CabinPageProps) {
       <Cabin cabin={cabin} />
 
       <div>
-        <h2 className='text-4xl font-semibold text-center mb-10 text-accent-700'>
+        <h2 className='text-3xl sm:text-4xl font-semibold text-center mb-10 text-accent-700'>
           Book <span className='font-extrabold'>{cabin.name}</span> now. Pay
           when you arrive.
         </h2>
