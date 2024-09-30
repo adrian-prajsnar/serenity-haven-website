@@ -20,7 +20,7 @@ export default function NavLink({ link, session }: NavLinkProps) {
         {link.href === '/account' && session?.user && (
           <div
             className={`pb-1 border-b-2 border-transparent sm:pb-0 sm:border-b-0 ${
-              pathname.startsWith('/account') && 'border-accent-700'
+              pathname.startsWith('/account') && 'border-b-accent-700'
             }`}
           >
             <img
@@ -50,7 +50,7 @@ export default function NavLink({ link, session }: NavLinkProps) {
           } ${
             link.href === '/account' && session?.user && 'hidden'
           } pb-1 hover:text-accent-700 transition-colors sm:hidden border-b-2 border-transparent ${
-            pathname.startsWith(link.href) && 'border-accent-700'
+            pathname.startsWith(link.href) && 'border-b-accent-700'
           }`}
         >
           {link.icon}
