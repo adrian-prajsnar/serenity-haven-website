@@ -10,9 +10,9 @@ export default function BookingReminder() {
   if (!range.from || !range.to) return null;
 
   return (
-    <div className='fixed bottom-6 left-1/2 -translate-x-1/2 py-5 px-8 rounded-full bg-accent-700 text-primary-50 font-medium shadow-lg shadow-slate-900 flex gap-8 items-center text-'>
+    <div className='fixed bottom-6 left-1/2 -translate-x-1/2 py-5 px-8 rounded-full bg-accent-700 text-primary-50 text-sm sm:text-base font-medium shadow-lg shadow-slate-900 flex gap-4 items-center justify-between md:w-max w-11/12'>
       <p>
-        <span>👋</span> Remember to secure your booking <br /> from{' '}
+        <span>👋</span> Remember to secure your booking from{' '}
         <span className='text-accent-400 font-semibold'>
           {format(new Date(range.from), 'MMM dd yyyy')}
         </span>{' '}

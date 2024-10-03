@@ -1,5 +1,6 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
 import 'react-day-picker/dist/style.css';
 import { DateRange, DayPicker } from 'react-day-picker';
 import {
@@ -36,7 +37,10 @@ export default function DateSelector({
   cabin,
   bookedDates,
 }: DateSelectorProps) {
+  const [numberOfMonths, setNumberOfMonths] = useState<number>(2);
   const { range, setRange, resetRange } = useBooking();
+  const { minBookingLength, maxBookingLength } = settings;
+  const { regularPrice, discount } = cabin;
 
   const displayRange: DateRange | undefined = isAlreadyBooked(
     range,
@@ -45,20 +49,28 @@ export default function DateSelector({
     ? undefined
     : range;
 
-  const { regularPrice, discount } = cabin;
-
   const numNights: number = displayRange
     ? differenceInDays(displayRange.to as Date, displayRange.from as Date)
     : 0;
 
   const cabinPrice: number = numNights * regularPrice - (discount ?? 0);
 
-  const { minBookingLength, maxBookingLength } = settings;
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 520) setNumberOfMonths(1);
+      else setNumberOfMonths(2);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <div className='flex flex-col justify-between rounded-l-lg'>
+    <div className='flex flex-col justify-between rounded-l-lg text-sm sm:text-base'>
       <DayPicker
-        className='pt-12 place-self-center rounded-tl-lg scale-95'
+        className='py-4 sm:py-8 lg:pt-12 place-self-center rounded-tl-lg scale-95'
         mode='range'
         onSelect={setRange}
         selected={displayRange}
@@ -68,36 +80,40 @@ export default function DateSelector({
         fromDate={new Date()}
         toYear={new Date().getFullYear() + 5}
         captionLayout='buttons'
-        numberOfMonths={2}
+        numberOfMonths={numberOfMonths}
         disabled={currentDate =>
           isPast(currentDate) ||
           bookedDates.some(date => isSameDay(date, currentDate))
         }
       />
 
-      <div className='flex items-center justify-between px-8 bg-accent-700 text-primary-50 h-[72px] rounded-bl-lg'>
-        <div className='flex items-baseline gap-6'>
-          <p className='flex gap-2 items-baseline'>
+      <div className='flex flex-wrap items-center justify-between gap-2 py-2 sm:py-4 px-4 sm:px-8 bg-accent-700 text-primary-50  lg:rounded-bl-lg'>
+        <div className='flex flex-wrap items-baseline gap-4'>
+          <p className='flex flex-wrap gap-2 items-baseline'>
             {discount && discount > 0 ? (
               <>
-                <span className='text-xl'>${regularPrice - discount}</span>
+                <span className='text-lg sm:text-xl'>
+                  ${regularPrice - discount}
+                </span>
                 <span className='line-through text-primary-500'>
                   ${regularPrice}
                 </span>
               </>
             ) : (
-              <span className='text-xl'>${regularPrice}</span>
+              <span className='text-lg sm:text-xl'>${regularPrice}</span>
             )}
             <span className=''>/ night</span>
           </p>
           {numNights ? (
             <>
-              <p className='bg-accent-800 px-2 py-1 text-xl rounded-lg'>
+              <p className='bg-accent-800 px-2 py-1 text-lg sm:text-xl rounded-lg'>
                 <span>&times;</span> <span>{numNights}</span>
               </p>
               <p>
                 <span className='font-bold uppercase'>Total</span>{' '}
-                <span className='text-xl font-semibold'>${cabinPrice}</span>
+                <span className='text-lg sm:text-xl font-semibold'>
+                  ${cabinPrice}
+                </span>
               </p>
             </>
           ) : null}
@@ -105,7 +121,7 @@ export default function DateSelector({
 
         {range?.from || range?.to ? (
           <button
-            className='border border-primary-400 py-2 px-4 text-sm font-semibold rounded-lg'
+            className='border border-primary-400 py-2 px-4 text-xs sm:text-sm font-semibold rounded-lg'
             onClick={resetRange}
           >
             Clear

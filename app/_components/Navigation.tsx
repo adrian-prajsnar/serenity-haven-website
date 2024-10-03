@@ -36,7 +36,7 @@ export default async function Navigation() {
 
   return (
     <nav className='z-10'>
-      <ul className='flex gap-4 sm:gap-6 md:gap-8 xl:gap-10 2xl:gap-12 items-center '>
+      <ul className='flex flex-wrap gap-4 sm:gap-6 md:gap-8 xl:gap-10 2xl:gap-12 items-center'>
         {navLinks.map(link => (
           <NavLink key={link.href} link={link} session={session} />
         ))}
