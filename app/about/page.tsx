@@ -21,7 +21,7 @@ export default async function AboutPage() {
           Welcome to Serenity Haven
         </h1>
 
-        <div className='space-y-6 sm:space-y-8'>
+        <div className='space-y-6 sm:space-y-8 text-justify'>
           <p>
             Where the splendor of nature and luxurious living merge seamlessly.
             Tucked away in the heart of the Tatry Mountains, this is your
@@ -69,7 +69,7 @@ export default async function AboutPage() {
           Managed by a group of friends since 2023
         </h2>
 
-        <div className='space-y-6 sm:space-y-8'>
+        <div className='space-y-6 sm:space-y-8 text-justify'>
           <p>
             Since 2023, Serenity Haven has been a treasured retreat managed by a
             group of friends. Established with passion and dedication, this

@@ -85,6 +85,7 @@ export default function BookingForm({ cabin, user }: BookingFormProps) {
           <textarea
             name='observations'
             id='observations'
+            rows={2}
             className='px-5 py-3 w-full border border-primary-300 rounded-md'
             placeholder='Do you have any pets, allergies, or special requests we should know about?'
           />

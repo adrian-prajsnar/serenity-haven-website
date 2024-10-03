@@ -28,7 +28,7 @@ export default function Cabin({ cabin }: CabinProps) {
           </h3>
         </div>
 
-        <p className='text-sm sm:text-base text-primary-700 mb-10'>
+        <p className='text-sm sm:text-base text-primary-700 mb-10 text-justify'>
           <TextExpander>{description}</TextExpander>
         </p>
 
