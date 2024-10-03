@@ -15,13 +15,13 @@ export default async function AboutPage() {
   const numberOfCabins: number = (await getCabins()).length;
 
   return (
-    <div className='grid grid-cols-5 gap-x-24 gap-y-32 items-center'>
+    <div className='flex flex-col md:grid md:grid-cols-5 gap-x-12 gap-y-12 lg:gap-x-24 md:gap-y-32 items-center text-sm sm:text-base'>
       <div className='col-span-3'>
-        <h1 className='text-3xl mb-10 text-accent-700 font-semibold'>
+        <h1 className='text-2xl sm:text-3xl mb-7 sm:mb-10 text-accent-700 font-semibold text-center sm:text-left'>
           Welcome to Serenity Haven
         </h1>
 
-        <div className='space-y-8'>
+        <div className='space-y-6 sm:space-y-8'>
           <p>
             Where the splendor of nature and luxurious living merge seamlessly.
             Tucked away in the heart of the Tatry Mountains, this is your
@@ -44,7 +44,7 @@ export default async function AboutPage() {
         </div>
       </div>
 
-      <div className='col-span-2'>
+      <div className='col-span-2 max-w-72 sm:max-w-96 md:max-w-fit order-first md:order-none'>
         <Image
           className='rounded-lg'
           src={image1}
@@ -54,7 +54,7 @@ export default async function AboutPage() {
         />
       </div>
 
-      <div className='col-span-2'>
+      <div className='col-span-2 max-w-72 sm:max-w-96 md:max-w-fit'>
         <Image
           className='rounded-lg'
           src={image2}
@@ -65,11 +65,11 @@ export default async function AboutPage() {
       </div>
 
       <div className='col-span-3'>
-        <h2 className='text-3xl mb-10 text-accent-700 font-semibold'>
+        <h2 className='text-2xl sm:text-3xl mb-7 sm:mb-10 text-accent-700 font-semibold text-center sm:text-left'>
           Managed by a group of friends since 2023
         </h2>
 
-        <div className='space-y-8'>
+        <div className='space-y-6 sm:space-y-8'>
           <p>
             Since 2023, Serenity Haven has been a treasured retreat managed by a
             group of friends. Established with passion and dedication, this
@@ -85,7 +85,7 @@ export default async function AboutPage() {
             coming home.
           </p>
 
-          <div>
+          <div className='flex items-center justify-center'>
             <Link
               href='/cabins'
               className='inline-block mt-4 bg-accent-700 px-8 py-5 text-primary-50 font-semibold rounded-full hover:bg-accent-800 transition-all'
