@@ -87,7 +87,7 @@ export default function DateSelector({
         }
       />
 
-      <div className='flex flex-wrap items-center justify-between gap-2 py-2 sm:py-4 px-4 sm:px-8 bg-accent-700 text-primary-50  lg:rounded-bl-lg'>
+      <div className='flex flex-wrap items-center justify-between gap-2 py-2 sm:py-4 px-4 sm:px-8 min-h-[3.25rem] bg-accent-700 text-primary-50 lg:rounded-bl-lg'>
         <div className='flex flex-wrap items-baseline gap-4'>
           <p className='flex flex-wrap gap-2 items-baseline'>
             {discount && discount > 0 ? (

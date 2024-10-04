@@ -28,7 +28,7 @@ export default function Header({ children }: HeaderProps) {
 
   return (
     <header
-      className={`text-sm md:text-base sticky top-0 z-20 px-4 sm:px-8 py-2 sm:py-4 font-[550] transition-[backdrop-blur] ${
+      className={`text-sm sm:text-base sticky top-0 z-20 px-4 sm:px-8 py-2 sm:py-4 font-[550] transition-[backdrop-blur] ${
         pathname === '/'
           ? isScrolled
             ? 'backdrop-blur-[8px]'

@@ -30,7 +30,8 @@
   }
 }
 
-html {
+html,
+* {
   scrollbar-width: thin;
   scrollbar-color: theme('colors.accent.700') theme('colors.primary.50');
 }

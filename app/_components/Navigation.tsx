@@ -12,22 +12,24 @@ const navLinks: NavLinkType[] = [
   {
     name: 'Cabins',
     href: '/cabins',
-    icon: <BsHouses className='h-5 w-5' />,
+    icon: <BsHouses className='h-4 w-4 min-[300px]:h-5 min-[300px]:w-5' />,
   },
   {
     name: 'About',
     href: '/about',
-    icon: <BsInfoCircle className='h-5 w-5' />,
+    icon: <BsInfoCircle className='h-4 w-4 min-[300px]:h-5 min-[300px]:w-5' />,
   },
   {
     name: 'Contact',
     href: '/contact',
-    icon: <BsEnvelope className='h-5 w-5' />,
+    icon: <BsEnvelope className='h-4 w-4 min-[300px]:h-5 min-[300px]:w-5' />,
   },
   {
     name: 'Guest area',
     href: '/account',
-    icon: <BsPersonCircle className='h-5 w-5' />,
+    icon: (
+      <BsPersonCircle className='h-4 w-4 min-[300px]:h-5 min-[300px]:w-5' />
+    ),
   },
 ];
 

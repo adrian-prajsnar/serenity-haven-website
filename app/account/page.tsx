@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { compareAsc, compareDesc, isAfter, isBefore, parseISO } from 'date-fns';
@@ -28,13 +29,13 @@ export default async function AccountPage() {
 
   return (
     <>
-      <h2 className='font-semibold text-xl text-accent-700 mb-7'>
+      <h2 className='font-semibold text-lg sm:text-xl text-accent-700 mb-5 sm:mb-7'>
         Welcome, {firstName}
       </h2>
 
       <div className='flex flex-col flex-grow gap-8 overflow-x-auto'>
         <section className='flex flex-col gap-1'>
-          <h3 className='text-lg font-semibold'>Upcoming stay</h3>
+          <h3 className='text-base sm:text-lg font-semibold'>Upcoming stay</h3>
 
           {upcomingBooking ? (
             <BookingCard booking={upcomingBooking} />
@@ -53,7 +54,7 @@ export default async function AccountPage() {
         </section>
 
         <section className='flex flex-col gap-1'>
-          <h3 className='text-lg font-semibold'>
+          <h3 className='text-base sm:text-lg font-semibold'>
             <span
               className={`${!lastBooking && 'line-through text-primary-400'}`}
             >
@@ -75,7 +76,9 @@ export default async function AccountPage() {
         </section>
 
         <section className='flex flex-col gap-1'>
-          <h3 className='text-lg font-semibold'>Upcoming events</h3>
+          <h3 className='text-base sm:text-lg font-semibold'>
+            Upcoming events
+          </h3>
           <p>
             Join us for a sunset yoga session by the lake, happening next Friday
             at 6 PM.
@@ -89,7 +92,9 @@ export default async function AccountPage() {
         </section>
 
         <section className='flex flex-col gap-1'>
-          <h3 className='text-lg font-semibold'>Exclusive offers</h3>
+          <h3 className='text-base sm:text-lg font-semibold'>
+            Exclusive offers
+          </h3>
           <p>
             {!lastBooking && !upcomingBooking
               ? 'Enjoy a special 15% discount on your first stay when you book within the next 7 days! Don’t miss out on this exclusive offer!'
@@ -104,8 +109,8 @@ export default async function AccountPage() {
         </section>
       </div>
 
-      <footer className='mt-auto pt-7 text-sm font-semibold uppercase'>
-        <ul className='flex items-center justify-center gap-16'>
+      <footer className='mt-auto pt-7 text-xs sm:text-sm font-semibold uppercase'>
+        <ul className='flex flex-wrap items-center justify-around gap-8'>
           <li>
             <Link
               href='/account/bookings'

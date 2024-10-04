@@ -29,7 +29,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       <body
-        className={`${raleway.className} antialiased bg-primary-0 text-primary-700 min-h-screen flex flex-col relative`}
+        className={`${raleway.className} antialiased bg-primary-0 text-primary-700 text-sm sm:text-base min-h-screen flex flex-col relative`}
       >
         <Header>
           <Navigation />

@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaPencilAlt } from 'react-icons/fa';
@@ -38,15 +39,15 @@ export default function BookingCard({
 
       <div className='flex-grow px-6 py-3 flex flex-col'>
         <div className='flex items-center justify-between'>
-          <h3 className='text-lg font-semibold'>
+          <h3 className='text-base sm:text-lg font-semibold'>
             {booking.numNights} nights in Cabin {booking.cabins?.name}
           </h3>
           {isPast(new Date(booking.startDate)) ? (
-            <span className='bg-yellow-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-lg'>
+            <span className='bg-yellow-700 text-primary-50 h-7 px-3 uppercase text-[0.625rem] leading-tight sm:text-xs font-bold flex items-center rounded-lg'>
               past
             </span>
           ) : (
-            <span className='bg-green-700 text-primary-50 h-7 px-3 uppercase text-xs font-bold flex items-center rounded-lg'>
+            <span className='bg-green-700 text-primary-50 h-7 px-3 uppercase text-[0.625rem] leading-tight sm:text-xs font-bold flex items-center rounded-lg'>
               upcoming
             </span>
           )}
@@ -61,14 +62,14 @@ export default function BookingCard({
         </p>
 
         <div className='flex gap-5 mt-auto items-baseline'>
-          <p className='text-lg font-semibold text-accent-700'>
+          <p className='text-base sm:text-lg font-semibold text-accent-700'>
             ${booking.totalPrice}
           </p>
           <p className='text-primary-600'>&bull;</p>
           <p className='text-primary-600 font-medium'>
             {booking.numGuests} guest{booking.numGuests > 1 && 's'}
           </p>
-          <p className='ml-auto text-sm font-medium text-primary-500'>
+          <p className='ml-auto text-[0.625rem] leading-tight sm:text-xs font-medium text-primary-500'>
             Booked {format(new Date(booking.created_at), 'EEE, MMM dd yyyy, p')}
           </p>
         </div>
@@ -79,7 +80,7 @@ export default function BookingCard({
           <>
             <Link
               href={`/account/bookings/update/${booking.id}`}
-              className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-600 border-b border-primary-400 flex-grow px-3 rounded-tr-lg hover:bg-accent-700 transition-colors hover:text-primary-50'
+              className='group flex items-center gap-2 uppercase text-[0.625rem] leading-tight sm:text-xs font-bold text-primary-600 border-b border-primary-400 flex-grow px-3 rounded-tr-lg hover:bg-accent-700 transition-colors hover:text-primary-50'
             >
               <FaPencilAlt className='h-4 w-4 text-primary-500 group-hover:text-primary-200 transition-colors' />
               <span className='mt-1'>Update</span>

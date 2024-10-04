@@ -24,7 +24,7 @@ export default function NavLink({ link, session }: NavLinkProps) {
             }`}
           >
             <img
-              className='h-5 sm:h-6 md:h-7 rounded-full'
+              className='h-4 min-[300px]:h-5 sm:h-6 md:h-7 rounded-full'
               src={session?.user?.image || ''}
               alt={`${session?.user?.name}'s avatar` || ''}
               referrerPolicy='no-referrer'

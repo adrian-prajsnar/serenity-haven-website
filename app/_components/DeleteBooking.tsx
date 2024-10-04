@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useTransition } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { Tables } from '../_types/database.types';
@@ -25,7 +26,7 @@ export default function DeleteBooking({
   return (
     <button
       onClick={handleDelete}
-      className='group flex items-center gap-2 uppercase text-xs font-bold text-primary-600 flex-grow px-3 rounded-br-lg hover:bg-accent-700 transition-colors hover:text-primary-50'
+      className='group flex items-center gap-2 uppercase text-[0.625rem] leading-tight sm:text-xs font-bold text-primary-600 flex-grow px-3 rounded-br-lg hover:bg-accent-700 transition-colors hover:text-primary-50'
     >
       {!isPending ? (
         <>
