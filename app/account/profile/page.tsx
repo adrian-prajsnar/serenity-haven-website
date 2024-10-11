@@ -17,7 +17,7 @@ export default async function ProfilePage() {
 
   return (
     <div>
-      <h2 className='font-semibold text-xl text-accent-700 mb-4'>
+      <h2 className='font-semibold text-lg sm:text-xl text-accent-700 mb-3 sm:mb-4'>
         Update your guest profile
       </h2>
 

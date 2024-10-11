@@ -16,11 +16,12 @@ export default function Filter() {
   };
 
   return (
-    <div className='border border-primary-400 flex text-sm font-medium rounded-lg'>
+    <div className='w-full sm:w-auto border border-primary-400 sm:flex grid grid-cols-2 text-xs sm:text-sm font-medium rounded-lg'>
       <FilterButton
         filter='all'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
+        index={1}
       >
         All cabins
       </FilterButton>
@@ -29,6 +30,7 @@ export default function Filter() {
         filter='small'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
+        index={2}
       >
         up to 3 guests
       </FilterButton>
@@ -37,6 +39,7 @@ export default function Filter() {
         filter='medium'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
+        index={3}
       >
         4 &ndash; 7 guests
       </FilterButton>
@@ -45,6 +48,7 @@ export default function Filter() {
         filter='large'
         handleFilter={handleFilter}
         activeFilter={activeFilter}
+        index={4}
       >
         8 &#43; guests
       </FilterButton>
@@ -56,6 +60,7 @@ type FilterButtonProps = {
   filter: string;
   handleFilter: (filter: string) => void;
   activeFilter: string;
+  index?: number;
   children: string;
 };
 
@@ -63,6 +68,7 @@ function FilterButton({
   filter,
   handleFilter,
   activeFilter,
+  index,
   children,
 }: FilterButtonProps) {
   return (
@@ -71,7 +77,11 @@ function FilterButton({
         filter === activeFilter
           ? 'hover:bg-accent-700 bg-accent-700 text-primary-50'
           : 'hover:bg-primary-200'
-      } px-5 py-2 first-of-type:rounded-l-lg last-of-type:rounded-r-lg`}
+      } px-5 py-2 ${index === 1 && 'rounded-tl-lg sm:rounded-l-lg'} ${
+        index === 2 && 'rounded-tr-lg sm:rounded-none'
+      } ${index === 3 && 'rounded-bl-lg sm:rounded-none'} ${
+        index === 4 && 'rounded-br-lg sm:rounded-r-lg'
+      }`}
       onClick={() => handleFilter(filter)}
     >
       {children}

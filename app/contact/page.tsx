@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div>
-      <h1 className='text-3xl mb-5 text-accent-700 font-semibold'>
+    <div className='text-sm sm:text-base'>
+      <h1 className='text-2xl sm:text-3xl mb-5 text-accent-700 font-semibold text-center sm:text-left'>
         Contact us
       </h1>
 
-      <p className='mb-20'>
+      <p className='mb-12 md:mb-20 text-justify'>
         We’re here to help make your experience at Serenity Haven as seamless
         and enjoyable as possible. Whether you have questions about your stay,
         need assistance with bookings, or just want to learn more about our
@@ -30,9 +30,9 @@ export default function ContactPage() {
         memories in the heart of the Tatry Mountains.
       </p>
 
-      <div className='grid grid-cols-2 gap-16'>
+      <div className='flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16'>
         <section>
-          <h2 className='font-semibold text-xl text-accent-700 text-center mb-7'>
+          <h2 className='font-semibold text-lg sm:text-xl text-accent-700 text-center sm:text-left md:text-center mb-3 sm:mb-5'>
             Online inquiry
           </h2>
 
@@ -40,12 +40,12 @@ export default function ContactPage() {
         </section>
 
         <section className='flex flex-col min-h-full'>
-          <h2 className='font-semibold text-xl text-accent-700 text-center mb-7'>
+          <h2 className='font-semibold text-lg sm:text-xl text-accent-700 text-center sm:text-left md:text-center mb-3 sm:mb-5'>
             Contact details
           </h2>
 
-          <div className='flex flex-col h-full gap-16 text-center'>
-            <p>
+          <div className='flex flex-col h-full gap-8 sm:gap-16'>
+            <p className='text-justify'>
               Our team is available from{' '}
               <span className='font-semibold'>8AM to 6PM</span>, Monday through
               Sunday, to assist you with your inquiries and bookings. For urgent
@@ -60,40 +60,42 @@ export default function ContactPage() {
               assistance.
             </p>
 
-            <ul className='text-lg flex flex-col gap-1'>
-              <li>
-                <Link
-                  href='mailto:contact@serenity-haven.com'
-                  className='flex items-center justify-center gap-2 w-fit mx-auto'
-                >
-                  <HiMail className='w-6 h-6' />
-                  <span className='border-b border-b-primary-400 hover:border-b-accent-700 transition-colors'>
-                    contact@serenity-haven.com
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='tel:+48123456789'
-                  className='flex items-center justify-center gap-2 w-fit mx-auto'
-                >
-                  <HiPhone className='w-6 h-6' />
-                  <span className='border-b border-b-primary-400 hover:border-b-accent-700 transition-colors'>
-                    +48 123 456 789
-                  </span>
-                </Link>
-              </li>
-            </ul>
+            <div className='flex flex-wrap justify-between xl:items-center md:flex-nowrap md:flex-col gap-8 sm:gap-16'>
+              <ul className='text-base sm:text-lg flex flex-col items-start gap-1'>
+                <li>
+                  <Link
+                    href='mailto:contact@serenity-haven.com'
+                    className='flex items-center justify-center gap-2 w-fit mx-auto'
+                  >
+                    <HiMail className='w-5 h-5 sm:w-6 sm:h-6' />
+                    <span className='border-b border-b-primary-400 hover:border-b-accent-700 transition-colors'>
+                      contact@serenity-haven.com
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='tel:+48123456789'
+                    className='flex items-center justify-center gap-2 w-fit mx-auto'
+                  >
+                    <HiPhone className='w-5 h-5 sm:w-6 sm:h-6' />
+                    <span className='border-b border-b-primary-400 hover:border-b-accent-700 transition-colors'>
+                      +48 123 456 789
+                    </span>
+                  </Link>
+                </li>
+              </ul>
 
-            <address className='not-italic'>
-              <span className='font-bold'>
-                Tatry Mountains <br />
-              </span>
-              Skibówki 40 <br />
-              34-500, Zakopane
-            </address>
+              <address className='not-italic'>
+                <span className='font-bold'>
+                  Tatry Mountains <br />
+                </span>
+                Skibówki 40 <br />
+                34-500, Zakopane
+              </address>
+            </div>
 
-            <ul className='flex flex-col gap-4'>
+            <ul className='flex flex-col xl:items-center gap-2.5 sm:gap-4'>
               <li>
                 Visit our{' '}
                 <Link
@@ -136,42 +138,42 @@ export default function ContactPage() {
               </li>
             </ul>
 
-            <div className='flex flex-col gap-4 pb-8 mt-auto'>
-              <span className='uppercase text-xs font-semibold text-primary-500'>
+            <div className='flex flex-col items-center gap-4 md:pb-8 mt-auto'>
+              <span className='uppercase text-[0.625rem] sm:text-xs font-semibold text-primary-500'>
                 Stay connected
               </span>
 
-              <ul className='flex items-center justify-center gap-6'>
+              <ul className='flex flex-wrap items-center gap-4 sm:gap-6'>
                 <li>
                   <Link
                     href=''
-                    className='flex items-center justify-center border border-primary-400 p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
+                    className='flex items-center justify-center border border-primary-400 p-3 sm:p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
                   >
-                    <FaFacebook className='w-6 h-6' />
+                    <FaFacebook className='w-5 h-5 sm:w-6 sm:h-6' />
                   </Link>
                 </li>
                 <li>
                   <Link
                     href=''
-                    className='flex items-center justify-center border border-primary-400 p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
+                    className='flex items-center justify-center border border-primary-400 p-3 sm:p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
                   >
-                    <FaInstagram className='w-6 h-6' />
+                    <FaInstagram className='w-5 h-5 sm:w-6 sm:h-6' />
                   </Link>
                 </li>
                 <li>
                   <Link
                     href=''
-                    className='flex items-center justify-center border border-primary-400 p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
+                    className='flex items-center justify-center border border-primary-400 p-3 sm:p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
                   >
-                    <FaTripadvisor className='w-6 h-6' />
+                    <FaTripadvisor className='w-5 h-5 sm:w-6 sm:h-6' />
                   </Link>
                 </li>
                 <li>
                   <Link
                     href=''
-                    className='flex items-center justify-center border border-primary-400 p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
+                    className='flex items-center justify-center border border-primary-400 p-3 sm:p-4 rounded-full hover:bg-primary-700 hover:text-primary-50 transition-colors'
                   >
-                    <FaYoutube className='w-6 h-6' />
+                    <FaYoutube className='w-5 h-5 sm:w-6 sm:h-6' />
                   </Link>
                 </li>
               </ul>

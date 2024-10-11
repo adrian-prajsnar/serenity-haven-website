@@ -5,7 +5,7 @@ export default function ContactForm() {
   return (
     <form
       action=''
-      className='bg-primary-100 py-8 px-12 flex gap-6 flex-col rounded-lg'
+      className='bg-primary-100 py-8 px-4 sm:px-8 md:px-4 lg:px-12 flex gap-6 flex-col rounded-lg'
     >
       <div className='space-y-2'>
         <label htmlFor='name' className='font-medium'>
@@ -43,7 +43,7 @@ export default function ContactForm() {
         </label>
         <textarea
           name='message'
-          className='resize-none px-5 py-3 w-full h-40 border border-primary-300 rounded-md'
+          className='resize-y px-5 py-3 w-full h-40 border border-primary-300 rounded-md'
         />
       </div>
 
@@ -54,7 +54,7 @@ export default function ContactForm() {
           id='userData'
           className='accent-accent-700'
         />
-        <p className='text-xs font-medium text-justify'>
+        <p className='text-[0.625rem] leading-[0.875rem] sm:text-xs font-medium text-justify'>
           By clicking this checkbox, you agree to provide Serenity Haven with
           your contact information and consent to receive our exclusive offers,
           discounts on future stays, newsletters, and other marketing content

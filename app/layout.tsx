@@ -29,12 +29,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       <body
-        className={`${raleway.className} antialiased bg-primary-0 text-primary-700 min-h-screen flex flex-col relative`}
+        className={`${raleway.className} antialiased bg-primary-0 text-primary-700 text-sm sm:text-base min-h-screen flex flex-col relative`}
       >
         <Header>
           <Navigation />
         </Header>
-        <div className='flex-1 px-8 py-12 grid'>
+        <div className='flex-1 px-4 py-6 sm:px-8 sm:py-12 grid'>
           <main className='max-w-7xl mx-auto w-full'>
             <BookingProvider>{children}</BookingProvider>
           </main>
