@@ -11,7 +11,9 @@ The project is a website for Serenity Haven hotel, where guests can view informa
 - Authentication & Authorization using NextAuth.
 - Cabins Display: Users can see all cabins, sort them by size, view the details and book them if they are available.
 - About Page: Users can view the information about hotel.
-- Guest Area: Users can see their bookings, update or delete them. Also they can update their profile.
+- Contact Page: Users can check contact details as well as make an online inquiry via contact form (for now, UI blueprint without actually sending inquiry)
+- Guest Area: Users land on their dashboard where they can see their bookings, update or delete them. They can also update their profile.
+- Full responsiveness - well designed and responsive UI up to 280px width.
 
 ## Table of Contents
 
@@ -83,7 +85,7 @@ npm run lint
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file.
+To run this project, you would need to add the following environment variables to your .env file.
 
 `SUPABASE_URL`
 `SUPABASE_KEY`
