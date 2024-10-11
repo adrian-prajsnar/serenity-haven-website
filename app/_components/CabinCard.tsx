@@ -24,7 +24,7 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
             Cabin {name}
           </h3>
 
-          <div className='flex gap-3 items-center mb-2'>
+          <div className='flex gap-3 items-center mb-4'>
             <FaUsers className='h-4 w-4 sm:h-5 sm:w-5 text-primary-500' />
             <p className='text-sm sm:text-base'>
               Perfect for <span className='font-semibold'>{maxCapacity}</span>{' '}
@@ -56,7 +56,7 @@ export default function CabinCard({ cabin }: { cabin: Tables<'cabins'> }) {
         <div className='mt-auto text-right'>
           <Link
             href={`/cabins/${id}`}
-            className='text-sm sm:text-base border-l border-t rounded-tl-lg border-primary-400 py-2 px-4 sm:py-4 sm:px-6 inline-block hover:bg-accent-700 transition-all hover:text-primary-50'
+            className='text-sm sm:text-base border-l border-t rounded-tl-lg border-primary-400 py-3 px-6 sm:py-4 sm:px-6 inline-block hover:bg-accent-700 transition-all hover:text-primary-50'
           >
             Details & bookings &rarr;
           </Link>

@@ -11,7 +11,7 @@ export default function Cabin({ cabin }: CabinProps) {
   const { name, maxCapacity, image, description } = cabin;
 
   return (
-    <div className='flex flex-col gap-4 sm:gap-8 lg:grid min-[1130px]:grid-cols-[3fr_4fr] grid-cols-2 min-[1130px]:gap-20  border border-primary-400 lg:py-3 lg:px-10 mb-24 rounded-lg'>
+    <div className='flex flex-col gap-8 lg:grid min-[1130px]:grid-cols-[3fr_4fr] grid-cols-2 min-[1130px]:gap-20  border border-primary-400 lg:py-3 lg:px-10 mb-24 rounded-lg'>
       <div className='relative lg:scale-[1.15] lg:-translate-x-3 min-h-64 sm:min-h-80'>
         <Image
           src={image ?? ''}
@@ -22,7 +22,7 @@ export default function Cabin({ cabin }: CabinProps) {
       </div>
 
       <div className='px-5 sm:px-10'>
-        <div className='mb-5 sm:mb-10 lg:mb-5 lg:translate-x-[-254px] lg:bg-primary-50 lg:p-6 lg:w-[150%] lg:rounded-l-lg'>
+        <div className='mb-7 sm:mb-10 lg:mb-5 lg:translate-x-[-254px] lg:bg-primary-50 lg:p-6 lg:w-[150%] lg:rounded-l-lg'>
           <h3 className='text-accent-50 text-[2.625rem] font-medium sm:text-6xl sm:font-semibold  [text-shadow:3px_3px_3px_var(--tw-shadow-color)] shadow-accent-950'>
             Cabin {name}
           </h3>
