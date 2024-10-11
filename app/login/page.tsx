@@ -7,11 +7,10 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <div className='flex flex-col gap-10 mt-10 items-center'>
-      <h2 className='text-2xl font-semibold'>
+    <div className='flex flex-col gap-4 sm:gap-8 mt-10 items-center text-center'>
+      <h2 className='text-xl sm:text-2xl font-semibold'>
         Sign in to access your guest area
       </h2>
-
       <SignInButton />
     </div>
   );

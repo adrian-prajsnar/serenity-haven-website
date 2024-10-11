@@ -21,7 +21,7 @@ export default function ContactPage() {
       </h1>
 
       <p className='mb-12 md:mb-20 text-justify'>
-        We’re here to help make your experience at Serenity Haven as seamless
+        We are here to help make your experience at Serenity Haven as seamless
         and enjoyable as possible. Whether you have questions about your stay,
         need assistance with bookings, or just want to learn more about our
         services, feel free to reach out. Our dedicated team is available to
