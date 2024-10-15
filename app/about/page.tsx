@@ -85,7 +85,7 @@ export default async function AboutPage() {
             coming home.
           </p>
 
-          <div className='flex items-center justify-center'>
+          <div className='flex items-center justify-center sm:justify-start'>
             <Link
               href='/cabins'
               className='inline-block mt-4 bg-accent-700 px-8 py-5 text-primary-50 font-semibold rounded-full hover:bg-accent-800 transition-all'
