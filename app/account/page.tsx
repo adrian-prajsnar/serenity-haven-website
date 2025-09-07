@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function AccountPage() {
   const session = await auth();
   const firstName: string = session?.user?.name?.split(' ').at(0) ?? '';
-  const bookings = await getBookings(session?.user?.guestId as number);
+  const bookings = await getBookings((session?.user?.guestId as number) ?? 0);
 
   const upcomingBooking =
     bookings
